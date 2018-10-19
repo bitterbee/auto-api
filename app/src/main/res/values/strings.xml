@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ABTest</string>
+
+    <string name="confirm">确认</string>
+    <string name="cancel">取消</string>
+
+
+    <string name="tab_home">首页</string>
+    <string name="tab_discovery">发现</string>
+    <string name="tab_shoppingcart">购物车</string>
+    <string name="tab_userpage">个人</string>
+
+</resources>

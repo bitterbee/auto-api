@@ -1,0 +1,78 @@
+apply plugin: 'com.android.application'
+
+//apply plugin: 'ApiProviderPlugin'
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+repositories {
+    mavenLocal()
+    maven { url uri('../../repo') }
+    maven { url 'https://dl.google.com/dl/android/maven2/' }
+    jcenter()
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+android {
+    compileSdkVersion COMPILE_SDK_VERSION.toInteger()
+    defaultConfig {
+        applicationId "com.netease.demo.apiprovider"
+        minSdkVersion MIN_SDK_VERSION.toInteger()
+        targetSdkVersion TARGET_SDK_VERSION.toInteger()
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                def from = "${project.projectDir}".toString()
+                def to = "${rootProject.projectDir}/module/neapiprovider".toString()
+                println "annotationProcessorOptions from " + from + "; to" + to
+                arguments = [apiprovider_from: from,
+                             apiprovider_to: to]
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+//
+//    sourceSets {
+//        main {
+//            def dirs = ['main', 'p_widget', 'p_theme']
+//            dirs.each { dir ->
+//                java.srcDir("src/$dir/java")
+//                res.srcDir("src/$dir/res")
+//            }
+//        }
+//    }
+}
+
+configurations.all {
+    resolutionStrategy.force "com.android.support:support-annotations:${APPCOMPAT_V7_VERSION}"
+}
+
+//ApiProviderConfig {
+//    apiProjectPath = "module/neapiprovider"
+//}
+
+//jackOptions {
+//    enabled = true
+//}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:appcompat-v7:${APPCOMPAT_V7_VERSION}"
+    implementation "com.android.support.constraint:constraint-layout:${CONSTRAINT_LAYOUT_VERSION}"
+    testImplementation "junit:junit:${JUNIT_VERSION}"
+    androidTestImplementation "com.android.support.test:runner:${TEST_RUNNER}"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:${TEST_ESPRESSO_CORE_VERSION}"
+
+    compile project(':neapiprovider')
+    annotationProcessor project(':neapiprovider-process')
+}

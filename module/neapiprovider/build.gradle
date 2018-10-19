@@ -1,0 +1,24 @@
+apply plugin: 'java'
+
+sourceCompatibility = JavaVersion.VERSION_1_7
+targetCompatibility = JavaVersion.VERSION_1_7
+
+sourceSets {
+    main {
+        def dirs = ['main', 'api']
+        dirs.each { dir ->
+            java.srcDir("src/$dir/java")
+        }
+    }
+}
+
+clean.doLast {
+    def apiDir = "${project.projectDir}/src/api/java/com/netease/libs/apiprovider/"
+    println apiDir.toString()
+    File file = file(apiDir)
+    file.deleteDir()
+}
+
+dependencies {
+
+}

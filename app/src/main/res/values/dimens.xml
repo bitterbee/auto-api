@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="text_size_xl">18dp</dimen>
+    <dimen name="text_size_l">16dp</dimen>
+    <dimen name="text_size_xm">15dp</dimen>
+    <dimen name="text_size_m">14dp</dimen>
+    <dimen name="text_size_s">12dp</dimen>
+
+    <dimen name="one_px">1px</dimen>
+    <dimen name="alert_dialog_btn_height">50dp</dimen>
+
+    <dimen name="tab_height">49dp</dimen>
+    <dimen name="tab_icon_size">28dp</dimen>
+
+</resources>

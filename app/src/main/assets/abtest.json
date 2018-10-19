@@ -1,0 +1,18 @@
+[
+	{
+		"itemId":"SimpleTest_001",
+		"accessory":"",
+		"testCase":{
+			"caseId":"001",
+			"accessory":""
+		}
+	},
+	{
+		"itemId":"SimpleTest_002",
+		"accessory":"",
+		"testCase":{
+			"caseId":"000",
+			"accessory":""
+		}
+	}
+]

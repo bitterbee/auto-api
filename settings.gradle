@@ -1,0 +1,10 @@
+include ':app'
+
+include ':neapiprovider'
+project(':neapiprovider').projectDir = new File('module/neapiprovider')
+
+include ':neapiprovider-process'
+project(':neapiprovider-process').projectDir = new File('module/neapiprovider-process')
+
+include ':neapiprovider-plugin'
+project(':neapiprovider-plugin').projectDir = new File('module/neapiprovider-plugin')
