@@ -29,3 +29,4 @@ build/*
 module/neapiprovider-plugin/neapiprovider-plugin.iml
 module/neapiprovider/neapiprovider.iml
 apiprovider.iml
+/module/neapiprovider/src/api/
