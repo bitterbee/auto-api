@@ -1,14 +1,14 @@
-package com.netease.libs.neapiprovider_process;
+package com.netease.libs.neapiprovider_process.generator;
 
+import com.netease.libs.neapiprovider_process.ElementUtil;
+import com.netease.libs.neapiprovider_process.NEApiProviderClass;
 import com.squareup.javapoet.ClassName;
-import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
 
 import java.util.List;
 
-import javax.annotation.processing.Filer;
 import javax.annotation.processing.Messager;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ExecutableElement;
@@ -23,19 +23,22 @@ import static javax.lang.model.element.Modifier.PUBLIC;
  * Created by zyl06 on 2018/10/18.
  */
 
-public class ApiImplClassGenerator extends BaseApiClassGenerator {
+public class ApiStubClassGenerator extends BaseApiClassGenerator {
 
-    private ApiInterfaceGenerator mApiGenerator;
+    ApiInterfaceGenerator mApiGenerator;
 
-    public ApiImplClassGenerator(NEApiProviderClass providerClass, Messager messager,
-                                 ApiInterfaceGenerator apiGenerator) {
-        super(providerClass, messager);
+    public ApiStubClassGenerator(NEApiProviderClass providerClass, Messager messager,
+                                 ApiInterfaceGenerator apiGenerator,
+                                 String packageName) {
+        super(providerClass, messager, packageName);
         this.mApiGenerator = apiGenerator;
     }
 
     @Override
     public String packageName() {
-        return "com.netease.libs.apiimpl";
+        return (mPkgName == null || mPkgName.isEmpty()) ?
+                "com.netease.libs.api_impl" :
+                mPkgName + ".api_impl";
     }
 
     @Override
@@ -91,7 +94,7 @@ public class ApiImplClassGenerator extends BaseApiClassGenerator {
                 .append("(");
 
         int paramCount = params.size();
-        for (int i=0; i<paramCount; i++) {
+        for (int i = 0; i < paramCount; i++) {
             sb.append(params.get(i).getSimpleName().toString());
             if (i < paramCount - 1) {
                 sb.append(",");

@@ -1,5 +1,7 @@
-package com.netease.libs.neapiprovider_process;
+package com.netease.libs.neapiprovider_process.generator;
 
+import com.netease.libs.neapiprovider_process.ElementUtil;
+import com.netease.libs.neapiprovider_process.NEApiProviderClass;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeName;
@@ -26,24 +28,24 @@ import static javax.lang.model.element.Modifier.PUBLIC;
 
 public class ApiInterfaceGenerator extends BaseApiClassGenerator {
 
-    private String mFromPath;
     private String mToPath;
 
-    public ApiInterfaceGenerator(NEApiProviderClass providerClass, Messager messager, String fromPath, String toPath) {
-        super(providerClass, messager);
-        this.mFromPath = fromPath;
+    public ApiInterfaceGenerator(NEApiProviderClass providerClass, Messager messager, String toPath, String pkgName) {
+        super(providerClass, messager, pkgName);
         this.mToPath = toPath;
     }
 
     @Override
     public String packageName() {
-        return "com.netease.libs.apiprovider";
+        return (mPkgName == null || mPkgName.isEmpty()) ?
+                "com.netease.libs.api_provider" :
+                mPkgName + ".api_provider";
     }
 
     @Override
     public String className() {
         return mProviderClass.name != null && !mProviderClass.name.equals("") ?
-                mProviderClass.name + "Api":
+                mProviderClass.name:
                 mApiTarget.getSimpleName() + "Api";
     }
 

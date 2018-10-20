@@ -2,6 +2,9 @@ package com.netease.libs.neapiprovider_process;
 
 import com.google.auto.service.AutoService;
 import com.netease.libs.neapiprovider.anno.NEApiProviderAnno;
+import com.netease.libs.neapiprovider_process.generator.ApiInterfaceGenerator;
+import com.netease.libs.neapiprovider_process.generator.ApiRegisterGenerator;
+import com.netease.libs.neapiprovider_process.generator.ApiStubClassGenerator;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.TypeSpec;
 
@@ -13,6 +16,7 @@ import java.util.Set;
 
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Filer;
+import javax.annotation.processing.FilerException;
 import javax.annotation.processing.Messager;
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.annotation.processing.Processor;
@@ -33,8 +37,8 @@ import static javax.tools.Diagnostic.Kind.ERROR;
 @AutoService(Processor.class)
 public class ApiProviderProcess extends AbstractProcessor {
 
-    private String mApiFromPath;
-    private String mApiToPath;
+    private String mPkgName;
+    private String mApiProjectPath;
 
     private Messager mMessager;
     private Filer filer;
@@ -45,8 +49,8 @@ public class ApiProviderProcess extends AbstractProcessor {
 
         Map<String, String> options = processingEnv.getOptions();
         if (options != null && !options.isEmpty()) {
-            mApiFromPath = options.get("apiprovider_from");
-            mApiToPath = options.get("apiprovider_to");
+            mApiProjectPath = options.get("apiProjectPath");
+            mPkgName = options.get("packageName");
         }
 
         mMessager = processingEnv.getMessager();
@@ -69,6 +73,7 @@ public class ApiProviderProcess extends AbstractProcessor {
         mMessager.printMessage(Diagnostic.Kind.WARNING, "api provider apt run begin");
 
         List<BaseClassGenerator> classGenerators = new ArrayList<>();
+        List<ApiStubClassGenerator> stubClassGenerators = new ArrayList<>();
         for (Element annoElement : roundEnv.getElementsAnnotatedWith(NEApiProviderAnno.class)) {
             TypeElement annoClass = (TypeElement) annoElement;
             //检测是否是支持的注解类型，如果不是里面会报错
@@ -84,20 +89,24 @@ public class ApiProviderProcess extends AbstractProcessor {
             providerClass.provideStaticApi = anno.provideStaticApi();
             providerClass.includeSuper = anno.includeSuper();
 
-            ApiInterfaceGenerator apiGenerator = new ApiInterfaceGenerator(providerClass, mMessager, mApiFromPath, mApiToPath);
+            ApiInterfaceGenerator apiGenerator = new ApiInterfaceGenerator(providerClass, mMessager, mApiProjectPath, mPkgName);
             classGenerators.add(apiGenerator);
 
-            ApiImplClassGenerator stubGenerator = new ApiImplClassGenerator(providerClass, mMessager, apiGenerator);
+            ApiStubClassGenerator stubGenerator = new ApiStubClassGenerator(providerClass, mMessager, apiGenerator, mPkgName);
+            stubClassGenerators.add(stubGenerator);
             classGenerators.add(stubGenerator);
         }
+
+        ApiRegisterGenerator registerGenerator = new ApiRegisterGenerator(mMessager, mPkgName, stubClassGenerators);
+        classGenerators.add(registerGenerator);
 
         for (BaseClassGenerator generator : classGenerators) {
             try {
                 TypeSpec generatedClass = generator.generate();
                 JavaFile javaFile = builder(generator.packageName(), generatedClass).build();
-//                javaFile.writeTo(filer);
-
                 generator.writeTo(javaFile, filer);
+            } catch (FilerException e) {
+                e.printStackTrace();
             } catch (IOException e) {
                 StringBuilder sb = new StringBuilder(128);
                 sb.append(e.toString()).append("\n");

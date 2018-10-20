@@ -27,11 +27,9 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                def from = "${project.projectDir}".toString()
-                def to = "${rootProject.projectDir}/module/neapiprovider".toString()
-                println "annotationProcessorOptions from " + from + "; to" + to
-                arguments = [apiprovider_from: from,
-                             apiprovider_to: to]
+                def path = "${rootProject.projectDir}/module/neapiprovider".toString()
+                arguments = [apiProjectPath: path,
+                             packageName: "com.netease.demo.apiprovider"]
             }
         }
     }
