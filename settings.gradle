@@ -1,10 +1,13 @@
 include ':app'
 
-include ':neapiprovider'
-project(':neapiprovider').projectDir = new File('module/neapiprovider')
+include ':apiservice'
+project(':apiservice').projectDir = new File('module/apiservice')
 
-include ':neapiprovider-process'
-project(':neapiprovider-process').projectDir = new File('module/neapiprovider-process')
+include ':apiservice-process'
+project(':apiservice-process').projectDir = new File('module/apiservice-process')
 
-include ':neapiprovider-plugin'
-project(':neapiprovider-plugin').projectDir = new File('module/neapiprovider-plugin')
+include ':apiservice-plugin'
+project(':apiservice-plugin').projectDir = new File('module/apiservice-plugin')
+
+include ':apiservice-api'
+project(':apiservice-api').projectDir = new File('module/apiservice-api')

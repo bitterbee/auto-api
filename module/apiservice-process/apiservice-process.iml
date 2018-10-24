@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id=":neapiprovider-process" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" type="JAVA_MODULE" version="4">
+<module external.linked.project.id=":apiservice-process" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="android-gradle" name="Android-Gradle">
       <configuration>
-        <option name="GRADLE_PROJECT_PATH" value=":neapiprovider-process" />
+        <option name="GRADLE_PROJECT_PATH" value=":apiservice-process" />
       </configuration>
     </facet>
     <facet type="java-gradle" name="Java-Gradle">
@@ -27,8 +27,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="neapiprovider" exported="" />
-    <orderEntry type="module" module-name="neapiprovider" exported="" />
+    <orderEntry type="module" module-name="apiservice" exported="" />
+    <orderEntry type="module" module-name="apiservice" exported="" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="auto-service-1.0-rc2" level="project" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="javapoet-1.0.0" level="project" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="auto-common-0.3" level="project" />
