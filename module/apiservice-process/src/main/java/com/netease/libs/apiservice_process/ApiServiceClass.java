@@ -1,4 +1,4 @@
-package com.netease.libs.neapiprovider_process;
+package com.netease.libs.apiservice_process;
 
 import javax.lang.model.element.TypeElement;
 
@@ -6,7 +6,7 @@ import javax.lang.model.element.TypeElement;
  * Created by zyl06 on 2018/10/17.
  */
 
-public class NEApiProviderClass {
+public class ApiServiceClass {
     // NEApiProviderAnno 注解对应的类型
     public TypeElement clazz;
     // api provider 名称

@@ -1,4 +1,4 @@
-package com.netease.libs.neapiprovider_process;
+package com.netease.libs.apiservice_process;
 
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.JavaFile;

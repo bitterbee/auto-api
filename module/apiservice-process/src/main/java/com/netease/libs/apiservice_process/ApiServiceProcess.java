@@ -1,10 +1,10 @@
-package com.netease.libs.neapiprovider_process;
+package com.netease.libs.apiservice_process;
 
 import com.google.auto.service.AutoService;
-import com.netease.libs.neapiprovider.anno.NEApiProviderAnno;
-import com.netease.libs.neapiprovider_process.generator.ApiInterfaceGenerator;
-import com.netease.libs.neapiprovider_process.generator.ApiRegisterGenerator;
-import com.netease.libs.neapiprovider_process.generator.ApiStubClassGenerator;
+import com.netease.libs.apiservice.anno.ApiServiceAnno;
+import com.netease.libs.apiservice_process.generator.ApiInterfaceGenerator;
+import com.netease.libs.apiservice_process.generator.ApiRegisterGenerator;
+import com.netease.libs.apiservice_process.generator.ApiStubClassGenerator;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.TypeSpec;
 
@@ -35,7 +35,7 @@ import static javax.tools.Diagnostic.Kind.ERROR;
  * Created by zyl06 on 2018/10/16.
  */
 @AutoService(Processor.class)
-public class ApiProviderProcess extends AbstractProcessor {
+public class ApiServiceProcess extends AbstractProcessor {
 
     private String mPkgName;
     private String mApiProjectPath;
@@ -59,7 +59,7 @@ public class ApiProviderProcess extends AbstractProcessor {
 
     @Override
     public Set<String> getSupportedAnnotationTypes() {
-        return singleton(NEApiProviderAnno.class.getCanonicalName());
+        return singleton(ApiServiceAnno.class.getCanonicalName());
     }
 
     @Override
@@ -74,16 +74,16 @@ public class ApiProviderProcess extends AbstractProcessor {
 
         List<BaseClassGenerator> classGenerators = new ArrayList<>();
         List<ApiStubClassGenerator> stubClassGenerators = new ArrayList<>();
-        for (Element annoElement : roundEnv.getElementsAnnotatedWith(NEApiProviderAnno.class)) {
+        for (Element annoElement : roundEnv.getElementsAnnotatedWith(ApiServiceAnno.class)) {
             TypeElement annoClass = (TypeElement) annoElement;
             //检测是否是支持的注解类型，如果不是里面会报错
-            if (!isValidElement(annoClass, NEApiProviderAnno.class)) {
+            if (!isValidElement(annoClass, ApiServiceAnno.class)) {
                 continue;
             }
             //获取到信息，把注解类的信息加入到列表中
-            NEApiProviderAnno anno = annoElement.getAnnotation(NEApiProviderAnno.class);
+            ApiServiceAnno anno = annoElement.getAnnotation(ApiServiceAnno.class);
 
-            NEApiProviderClass providerClass = new NEApiProviderClass();
+            ApiServiceClass providerClass = new ApiServiceClass();
             providerClass.clazz = annoClass;
             providerClass.name = anno.name();
             providerClass.provideStaticApi = anno.provideStaticApi();

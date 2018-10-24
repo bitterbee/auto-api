@@ -1,4 +1,4 @@
-package com.netease.demo.apiprovider;
+package com.netease.demo.apiservice;
 
 import android.app.Application;
 

@@ -1,7 +1,7 @@
-package com.netease.libs.neapiprovider_process.generator;
+package com.netease.libs.apiservice_process.generator;
 
-import com.netease.libs.neapiprovider.ApiProvider;
-import com.netease.libs.neapiprovider_process.BaseClassGenerator;
+import com.netease.libs.apiservice.ApiService;
+import com.netease.libs.apiservice_process.BaseClassGenerator;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeName;
@@ -35,7 +35,7 @@ public class ApiRegisterGenerator extends BaseClassGenerator {
 
     @Override
     public String packageName() {
-        return mPkgName + ".api_provider";
+        return mPkgName + ".api_service";
     }
 
     @Override
@@ -47,16 +47,16 @@ public class ApiRegisterGenerator extends BaseClassGenerator {
     public TypeSpec generate() {
         TypeSpec.Builder builder = classBuilder(className())
                 .addModifiers(PUBLIC);
-        builder.addJavadoc("ApiProvider 注册类\n");
+        builder.addJavadoc("ApiService 注册类\n");
 
         MethodSpec.Builder initMethod = MethodSpec.methodBuilder("init")
                 .addModifiers(Modifier.STATIC, Modifier.PUBLIC)
-                .addJavadoc("集成模块的 ApiProvider 初始化方法\n")
+                .addJavadoc("集成模块的 ApiService 初始化方法\n")
                 .returns(TypeName.VOID);
         for (ApiStubClassGenerator apiStub : mApiStubsGenerators) {
             ClassName apiStubClass = ClassName.get(apiStub.packageName(), apiStub.className());
 
-            initMethod.addStatement("$T.APIS.put($S, new $T())", ApiProvider.class,
+            initMethod.addStatement("$T.APIS.put($S, new $T())", ApiService.class,
                     apiStub.mApiGenerator.className(), apiStubClass);
         }
         builder.addMethod(initMethod.build());

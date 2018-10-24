@@ -92,6 +92,14 @@
     <orderEntry type="library" exported="" scope="PROVIDED" name="gradle-api-4.1" level="project" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="groovy-all-2.4.11" level="project" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="gradle-installation-beacon-4.1" level="project" />
+    <orderEntry type="library" exported="" name="apiservice-plugin.apiservice-plugin-0.0.1-snapshot" level="project" />
+    <orderEntry type="library" exported="" name="apiservice-plugin.apiservice-plugin-0.0.1-snapshot" level="project" />
+    <orderEntry type="library" exported="" name="apiservice-plugin.apiservice-plugin-0.0.1-snapshot" level="project" />
+    <orderEntry type="library" exported="" name="apiservice-plugin.apiservice-plugin-0.0.1-snapshot" level="project" />
+    <orderEntry type="library" exported="" name="apiservice-plugin.apiservice-plugin-0.0.1-snapshot" level="project" />
+    <orderEntry type="library" exported="" name="apiservice-plugin.apiservice-plugin-0.0.1-snapshot" level="project" />
+    <orderEntry type="library" exported="" name="apiservice-plugin.apiservice-plugin-0.0.1-snapshot" level="project" />
+    <orderEntry type="library" exported="" name="apiservice-plugin.apiservice-plugin-0.0.1-snapshot" level="project" />
   </component>
   <component name="sonarModuleSettings">
     <option name="localAnalysisScripName" value="&lt;PROJECT&gt;" />

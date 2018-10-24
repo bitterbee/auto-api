@@ -1,4 +1,4 @@
-package com.netease.libs.apiprovider_api;
+package com.netease.libs.apiservice_api;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

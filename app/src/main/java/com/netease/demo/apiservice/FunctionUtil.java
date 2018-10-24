@@ -1,10 +1,10 @@
-package com.netease.demo.apiprovider;
+package com.netease.demo.apiservice;
 
 import android.os.Environment;
 import android.os.StatFs;
 import android.util.Log;
 
-import com.netease.libs.neapiprovider.anno.NEApiProviderAnno;
+import com.netease.libs.apiservice.anno.ApiServiceAnno;
 
 import java.io.File;
 import java.util.Timer;
@@ -13,7 +13,7 @@ import java.util.Timer;
  * Created by zyl06 on 2018/10/18.
  */
 
-@NEApiProviderAnno(provideStaticApi = true)
+@ApiServiceAnno(provideStaticApi = true)
 public class FunctionUtil {
 
     public static long getSDAvailableSize() {

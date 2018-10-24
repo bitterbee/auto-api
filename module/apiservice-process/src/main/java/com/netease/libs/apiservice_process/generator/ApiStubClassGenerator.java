@@ -1,7 +1,7 @@
-package com.netease.libs.neapiprovider_process.generator;
+package com.netease.libs.apiservice_process.generator;
 
-import com.netease.libs.neapiprovider_process.ElementUtil;
-import com.netease.libs.neapiprovider_process.NEApiProviderClass;
+import com.netease.libs.apiservice_process.ElementUtil;
+import com.netease.libs.apiservice_process.ApiServiceClass;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeName;
@@ -27,7 +27,7 @@ public class ApiStubClassGenerator extends BaseApiClassGenerator {
 
     ApiInterfaceGenerator mApiGenerator;
 
-    public ApiStubClassGenerator(NEApiProviderClass providerClass, Messager messager,
+    public ApiStubClassGenerator(ApiServiceClass providerClass, Messager messager,
                                  ApiInterfaceGenerator apiGenerator,
                                  String packageName) {
         super(providerClass, messager, packageName);

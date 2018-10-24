@@ -1,9 +1,9 @@
-package com.netease.demo.apiprovider.api_provider;
+package com.netease.demo.apiservice.api_service;
 
 import java.util.Timer;
 
 /**
- * com.netease.demo.apiprovider.FunctionUtil 的 api 接口
+ * com.netease.demo.apiservice.FunctionUtil 的 api 接口
  */
 public interface FunctionUtilApi {
   long getSDAvailableSize();

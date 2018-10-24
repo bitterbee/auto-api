@@ -1,43 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="36b8c8e8-cb17-421d-877f-2c41833e6f79" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ApiService.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/apiservice-api/apiservice-api.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/apiservice-plugin/apiservice-plugin.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/apiservice-process/apiservice-process.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/apiservice/apiservice.iml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider-plugin/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider-plugin/README-CN.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider-plugin/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider-plugin/build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider-plugin/src/main/groovy/com/netease/plugin/apiprovider/ApiProvider.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider-plugin/src/main/groovy/com/netease/plugin/apiprovider/Config.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider-plugin/src/main/groovy/com/netease/plugin/apiprovider/FileUtil.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider-plugin/src/main/resources/META-INF/gradle-plugins/ApiProviderPlugin.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider-process/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider-process/build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider-process/neapiprovider-process.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider-process/src/main/java/com/netease/libs/neapiprovider_process/ApiProviderProcess.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider-process/src/main/java/com/netease/libs/neapiprovider_process/BaseClassGenerator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider-process/src/main/java/com/netease/libs/neapiprovider_process/ElementUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider-process/src/main/java/com/netease/libs/neapiprovider_process/FileUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider-process/src/main/java/com/netease/libs/neapiprovider_process/NEApiProviderClass.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider-process/src/main/java/com/netease/libs/neapiprovider_process/generator/ApiInterfaceGenerator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider-process/src/main/java/com/netease/libs/neapiprovider_process/generator/ApiRegisterGenerator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider-process/src/main/java/com/netease/libs/neapiprovider_process/generator/ApiStubClassGenerator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider-process/src/main/java/com/netease/libs/neapiprovider_process/generator/BaseApiClassGenerator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider/build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider/src/api/java/com/netease/demo/apiprovider/api_provider/FunctionUtilApi.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider/src/main/java/com/netease/libs/neapiprovider/ApiProvider.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/neapiprovider/src/main/java/com/netease/libs/neapiprovider/anno/NEApiProviderAnno.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiprovider/DemoApplication.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiprovider/FunctionUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiprovider/MainActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/module/apiservice/src/api/java/com/netease/demo/apiprovider/api_provider/FunctionUtilApi.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/module/apiservice-api/src/androidTest/java/com/netease/libs/apiprovider_api/ExampleInstrumentedTest.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/androidTest/java/com/netease/libs/apiservice_api/ExampleInstrumentedTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/module/apiservice-api/src/test/java/com/netease/libs/apiprovider_api/ExampleUnitTest.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/test/java/com/netease/libs/apiservice_api/ExampleUnitTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/neapiprovider_process/ApiProviderProcess.java" afterPath="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/ApiServiceProcess.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/neapiprovider_process/BaseClassGenerator.java" afterPath="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/BaseClassGenerator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/neapiprovider_process/ElementUtil.java" afterPath="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/ElementUtil.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/neapiprovider_process/FileUtil.java" afterPath="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/FileUtil.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/neapiprovider_process/NEApiProviderClass.java" afterPath="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/ApiServiceClass.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/neapiprovider_process/generator/ApiInterfaceGenerator.java" afterPath="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/generator/ApiInterfaceGenerator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/neapiprovider_process/generator/ApiRegisterGenerator.java" afterPath="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/generator/ApiRegisterGenerator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/neapiprovider_process/generator/ApiStubClassGenerator.java" afterPath="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/generator/ApiStubClassGenerator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/neapiprovider_process/generator/BaseApiClassGenerator.java" afterPath="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/generator/BaseApiClassGenerator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/module/apiservice/src/main/java/com/netease/libs/neapiprovider/ApiProvider.java" afterPath="$PROJECT_DIR$/module/apiservice/src/main/java/com/netease/libs/apiservice/ApiService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/module/apiservice/src/main/java/com/netease/libs/neapiprovider/anno/NEApiProviderAnno.java" afterPath="$PROJECT_DIR$/module/apiservice/src/main/java/com/netease/libs/apiservice/anno/ApiServiceAnno.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/apiservice-api.iml" afterPath="$PROJECT_DIR$/module/apiservice-api/apiservice-api.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/build.gradle" afterPath="$PROJECT_DIR$/module/apiservice-api/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/module/apiservice-api/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-plugin/apiservice-plugin.iml" afterPath="$PROJECT_DIR$/module/apiservice-plugin/apiservice-plugin.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,48 +58,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FunctionUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiprovider/FunctionUtil.java">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            <state relative-caret-position="189">
+              <caret line="18" column="49" lean-forward="false" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/apiservice-api/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FunctionUtilStub.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build/generated/source/apt/debug/com/netease/demo/apiservice/api_impl/FunctionUtilStub.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
               <folding>
-                <element signature="e#983#984#0" expanded="false" />
-                <element signature="e#1034#1035#0" expanded="false" />
-                <element signature="e#1077#1078#0" expanded="false" />
-                <element signature="e#1105#1106#0" expanded="false" />
-                <element signature="e#1144#1145#0" expanded="false" />
-                <element signature="e#1171#1172#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#344#345#0" expanded="true" />
+                <element signature="e#394#395#0" expanded="true" />
+                <element signature="e#424#425#0" expanded="true" />
+                <element signature="e#459#460#0" expanded="true" />
+                <element signature="e#493#494#0" expanded="true" />
+                <element signature="e#531#532#0" expanded="true" />
+                <element signature="e#560#561#0" expanded="true" />
+                <element signature="e#600#601#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClassName.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup/javapoet/1.0.0/d69fcea0a812bb415e936eb3688f5578a6ebc2c2/javapoet-1.0.0-sources.jar!/com/squareup/javapoet/ClassName.java">
+      <file leaf-file-name="FunctionUtilApi.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/FunctionUtilApi.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1635">
-              <caret line="143" column="41" lean-forward="false" selection-start-line="143" selection-start-column="41" selection-end-line="143" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="593">
-              <caret line="59" column="3" lean-forward="true" selection-start-line="59" selection-start-column="3" selection-end-line="59" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/settings.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="67" lean-forward="false" selection-start-line="12" selection-start-column="67" selection-end-line="12" selection-end-column="67" />
+            <state relative-caret-position="105">
+              <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -119,12 +118,58 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
+      <file leaf-file-name="ApiServiceProcess.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/ApiServiceProcess.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state relative-caret-position="622">
+              <caret line="123" column="5" lean-forward="true" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApiInterfaceGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/generator/ApiInterfaceGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="316">
+              <caret line="79" column="9" lean-forward="false" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/apiservice/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FunctionUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/FunctionUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="28" column="13" lean-forward="true" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="1" lean-forward="false" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -141,6 +186,11 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>stubClassGenerators</find>
+      <find>package com\.netease\.libs\.apiservice_process\.generator\;\n\nimport com\.netease\.libs\.apiservice_process\.BaseClassGenerator\;\nimport com\.netease\.libs\.apiservice_process\.ApiServiceClass\;\n\nimport javax\.annotation\.processing\.Messager\;\nimport javax\.lang\.model\.element\.TypeElement\;\n\n\/\*\*\n \* Created by zyl06 on 2018\/10\/18\.\n \*\/\n\npublic abstract class BaseApiClassGenerator extends BaseClassGenerator \{\n\n    protected ApiServiceClass mProviderClass\;\n    protected TypeElement mApiTarget\;\n    protected String mPkgName\;\n\n    public BaseApiClassGenerator\(ApiServiceClass providerClass\, Messager messager\, String packageName\) \{\n        super\(messager\)\;\n        mProviderClass \= providerClass\;\n        mApiTarget \= providerClass\.clazz\;\n        mPkgName \= packageName\;\n    \}\n\}\n</find>
+      <find>a</find>
+      <find>apip</find>
+      <find>apiprovide</find>
+      <find>apiprovider</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -3523,7 +3573,20 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/settings.gradle" />
         <option value="$PROJECT_DIR$/module/apiservice-process/build.gradle" />
+        <option value="$PROJECT_DIR$/module/apiservice/src/main/java/com/netease/libs/apiservice/anno/NEApiProviderAnno.java" />
+        <option value="$PROJECT_DIR$/module/apiservice/src/main/java/com/netease/libs/apiservice/anno/ApiServiceAnno.java" />
+        <option value="$PROJECT_DIR$/module/apiservice-api/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/ApiProviderProcess.java" />
+        <option value="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/ApiServiceProcess.java" />
+        <option value="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/generator/ApiRegisterGenerator.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/DemoApplication.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/FunctionUtil.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/MainActivity.java" />
+        <option value="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/generator/ApiInterfaceGenerator.java" />
+        <option value="$PROJECT_DIR$/module/apiservice-api/build.gradle" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/build/generated/source/apt/debug/com/netease/demo/apiservice/api_impl/FunctionUtilStub.java" />
       </list>
     </option>
   </component>
@@ -3570,7 +3633,91 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiservice-process" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ApiService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ApiService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiservice-process" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiservice_process" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ApiService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ApiService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ApiService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ApiService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ApiService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ApiService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3667,7 +3814,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1540385389400" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1540386336212" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -3713,7 +3860,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1540385389400" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1540386336212" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3769,6 +3916,27 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
@@ -3985,7 +4153,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1540385389437" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1540386336214" />
       </method>
     </configuration>
     <list size="1">
@@ -4042,7 +4210,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -4053,6 +4221,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="SonarLint" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Fabric" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -4064,7 +4233,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -4075,61 +4243,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiprovider/FunctionUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding>
-            <element signature="e#983#984#0" expanded="false" />
-            <element signature="e#1034#1035#0" expanded="false" />
-            <element signature="e#1077#1078#0" expanded="false" />
-            <element signature="e#1105#1106#0" expanded="false" />
-            <element signature="e#1144#1145#0" expanded="false" />
-            <element signature="e#1171#1172#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup/javapoet/1.0.0/d69fcea0a812bb415e936eb3688f5578a6ebc2c2/javapoet-1.0.0-sources.jar!/com/squareup/javapoet/ClassName.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1635">
-          <caret line="143" column="41" lean-forward="false" selection-start-line="143" selection-start-column="41" selection-end-line="143" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="67" lean-forward="false" selection-start-line="12" selection-start-column="67" selection-end-line="12" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/apiservice-process/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="63" column="3" lean-forward="true" selection-start-line="63" selection-start-column="3" selection-end-line="63" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/module/neapiprovider-process/src/main/java/com/netease/libs/neapiprovider_process/ApiProviderProcess.java" />
     <entry file="file://$PROJECT_DIR$/app/build/generated/source/apt/debug/com/netease/demo/apiprovider/api_provider/ApiRegister.java" />
     <entry file="file://$PROJECT_DIR$/app/build/generated/source/apt/debug/com/netease/demo/apiprovider/api_impl/FunctionUtilStub.java" />
@@ -4137,14 +4250,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding>
-            <element signature="e#983#984#0" expanded="false" />
-            <element signature="e#1034#1035#0" expanded="false" />
-            <element signature="e#1077#1078#0" expanded="false" />
-            <element signature="e#1105#1106#0" expanded="false" />
-            <element signature="e#1144#1145#0" expanded="false" />
-            <element signature="e#1171#1172#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -4197,20 +4303,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build/generated/source/apt/debug/com/netease/demo/apiprovider/api_provider/ApiRegister.java" />
-    <entry file="file://$PROJECT_DIR$/app/build/generated/source/apt/debug/com/netease/demo/apiprovider/api_impl/FunctionUtilStub.java" />
     <entry file="file://$PROJECT_DIR$/module/neapiprovider/src/main/java/com/netease/libs/neapiprovider/anno/NEApiProviderAnno.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiprovider/FunctionUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding>
-            <element signature="e#983#984#0" expanded="false" />
-            <element signature="e#1034#1035#0" expanded="false" />
-            <element signature="e#1077#1078#0" expanded="false" />
-            <element signature="e#1105#1106#0" expanded="false" />
-            <element signature="e#1144#1145#0" expanded="false" />
-            <element signature="e#1171#1172#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -4240,6 +4338,196 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice/src/main/java/com/netease/libs/apiservice/anno/ApiServiceAnno.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice-api/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="50" lean-forward="false" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice-plugin/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="5" lean-forward="false" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice-plugin/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/ApiServiceClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/generator/ApiRegisterGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="46" column="32" lean-forward="false" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/generator/ApiStubClassGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="573">
+          <caret line="61" column="52" lean-forward="false" selection-start-line="61" selection-start-column="52" selection-end-line="61" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/generator/BaseApiClassGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/apt/debug/com/netease/demo/apiprovider/api_impl/FunctionUtilStub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="47" lean-forward="false" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/DemoApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="35" lean-forward="false" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="1" lean-forward="false" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/generator/ApiInterfaceGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="79" column="9" lean-forward="false" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice-api/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice_api/src/main/java/com/netease/demo/apiservice/api_service/FunctionUtilApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice/src/api/java/com/netease/demo/apiprovider/api_provider/FunctionUtilApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="18" column="49" lean-forward="false" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/FunctionUtilApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/apt/debug/com/netease/demo/apiservice/api_impl/FunctionUtilStub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#344#345#0" expanded="true" />
+            <element signature="e#394#395#0" expanded="true" />
+            <element signature="e#424#425#0" expanded="true" />
+            <element signature="e#459#460#0" expanded="true" />
+            <element signature="e#493#494#0" expanded="true" />
+            <element signature="e#531#532#0" expanded="true" />
+            <element signature="e#560#561#0" expanded="true" />
+            <element signature="e#600#601#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/FunctionUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="28" column="13" lean-forward="true" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/module/apiservice-process/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -4248,11 +4536,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+    <entry file="file://$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/ApiServiceProcess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="59" column="3" lean-forward="true" selection-start-line="59" selection-start-column="3" selection-end-line="59" selection-end-column="3" />
-          <folding />
+        <state relative-caret-position="622">
+          <caret line="123" column="5" lean-forward="true" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

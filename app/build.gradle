@@ -18,7 +18,7 @@ repositories {
 android {
     compileSdkVersion COMPILE_SDK_VERSION.toInteger()
     defaultConfig {
-        applicationId "com.netease.demo.apiprovider"
+        applicationId "com.netease.demo.apiservice"
         minSdkVersion MIN_SDK_VERSION.toInteger()
         targetSdkVersion TARGET_SDK_VERSION.toInteger()
         versionCode 1
@@ -27,9 +27,9 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                def path = "${rootProject.projectDir}/module/neapiprovider".toString()
+                def path = "${rootProject.projectDir}/module/apiservice-api".toString()
                 arguments = [apiProjectPath: path,
-                             packageName: "com.netease.demo.apiprovider"]
+                             packageName: "com.netease.demo.apiservice"]
             }
         }
     }
@@ -72,5 +72,6 @@ dependencies {
     androidTestImplementation "com.android.support.test.espresso:espresso-core:${TEST_ESPRESSO_CORE_VERSION}"
 
     compile project(':apiservice')
+    compile project(':apiservice-api')
     annotationProcessor project(':apiservice-process')
 }

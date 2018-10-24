@@ -1,4 +1,4 @@
-package com.netease.libs.neapiprovider_process;
+package com.netease.libs.apiservice_process;
 
 import java.io.Closeable;
 import java.io.File;

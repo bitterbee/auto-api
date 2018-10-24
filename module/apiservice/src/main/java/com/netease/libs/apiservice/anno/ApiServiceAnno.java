@@ -1,4 +1,4 @@
-package com.netease.libs.neapiprovider.anno;
+package com.netease.libs.apiservice.anno;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.CLASS)
-public @interface NEApiProviderAnno {
+public @interface ApiServiceAnno {
     /**
      * 接口提供者名字
      * @return

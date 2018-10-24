@@ -1,7 +1,7 @@
-package com.netease.libs.neapiprovider_process.generator;
+package com.netease.libs.apiservice_process.generator;
 
-import com.netease.libs.neapiprovider_process.BaseClassGenerator;
-import com.netease.libs.neapiprovider_process.NEApiProviderClass;
+import com.netease.libs.apiservice_process.BaseClassGenerator;
+import com.netease.libs.apiservice_process.ApiServiceClass;
 
 import javax.annotation.processing.Messager;
 import javax.lang.model.element.TypeElement;
@@ -12,11 +12,11 @@ import javax.lang.model.element.TypeElement;
 
 public abstract class BaseApiClassGenerator extends BaseClassGenerator {
 
-    protected NEApiProviderClass mProviderClass;
+    protected ApiServiceClass mProviderClass;
     protected TypeElement mApiTarget;
     protected String mPkgName;
 
-    public BaseApiClassGenerator(NEApiProviderClass providerClass, Messager messager, String packageName) {
+    public BaseApiClassGenerator(ApiServiceClass providerClass, Messager messager, String packageName) {
         super(messager);
         mProviderClass = providerClass;
         mApiTarget = providerClass.clazz;

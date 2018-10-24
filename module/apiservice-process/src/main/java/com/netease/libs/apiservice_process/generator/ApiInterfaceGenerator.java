@@ -1,7 +1,7 @@
-package com.netease.libs.neapiprovider_process.generator;
+package com.netease.libs.apiservice_process.generator;
 
-import com.netease.libs.neapiprovider_process.ElementUtil;
-import com.netease.libs.neapiprovider_process.NEApiProviderClass;
+import com.netease.libs.apiservice_process.ElementUtil;
+import com.netease.libs.apiservice_process.ApiServiceClass;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeName;
@@ -30,7 +30,7 @@ public class ApiInterfaceGenerator extends BaseApiClassGenerator {
 
     private String mToPath;
 
-    public ApiInterfaceGenerator(NEApiProviderClass providerClass, Messager messager, String toPath, String pkgName) {
+    public ApiInterfaceGenerator(ApiServiceClass providerClass, Messager messager, String toPath, String pkgName) {
         super(providerClass, messager, pkgName);
         this.mToPath = toPath;
     }
@@ -38,8 +38,8 @@ public class ApiInterfaceGenerator extends BaseApiClassGenerator {
     @Override
     public String packageName() {
         return (mPkgName == null || mPkgName.isEmpty()) ?
-                "com.netease.libs.api_provider" :
-                mPkgName + ".api_provider";
+                "com.netease.libs.api_service" :
+                mPkgName + ".api_service";
     }
 
     @Override
@@ -69,7 +69,7 @@ public class ApiInterfaceGenerator extends BaseApiClassGenerator {
 
     @Override
     public void writeTo(JavaFile javaFile, Filer filer) throws IOException {
-        String to = mToPath + "/src/api/java/";
+        String to = mToPath + "/src/main/java/";
         File toDir = new File(to);
         if (!toDir.exists()) {
             boolean success = toDir.mkdirs();

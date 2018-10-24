@@ -1,4 +1,4 @@
-package com.netease.demo.apiprovider;
+package com.netease.demo.apiservice;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
