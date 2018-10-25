@@ -27,3 +27,10 @@ dependencies {
     androidTestImplementation "com.android.support.test:runner:${TEST_RUNNER}"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:${TEST_ESPRESSO_CORE_VERSION}"
 }
+
+clean.doLast {
+    def apiDir = "${project.projectDir}/src/main/java/com/"
+    println apiDir.toString()
+    File file = file(apiDir)
+    file.deleteDir()
+}

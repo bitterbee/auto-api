@@ -12,13 +12,6 @@ sourceSets {
     }
 }
 
-clean.doLast {
-    def apiDir = "${project.projectDir}/src/api/java/com/netease/libs/apiprovider/"
-    println apiDir.toString()
-    File file = file(apiDir)
-    file.deleteDir()
-}
-
 dependencies {
 
 }
