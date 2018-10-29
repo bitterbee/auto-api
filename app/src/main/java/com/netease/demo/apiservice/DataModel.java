@@ -6,19 +6,23 @@ import com.netease.libs.apiservice.anno.ApiServiceConstructAnno;
 /**
  * Created by zyl06 on 2018/10/27.
  */
-
+@ApiServiceClassAnno(name = "AppDataModel")
 public class DataModel {
 
-    public int a;
-    public long b;
-    private float c;
+    private int a;
+    private int b;
 
     @ApiServiceConstructAnno()
-    public DataModel(int a, long b, float c) {
+    public DataModel(int a, int b) {
         this.a = a;
         this.b = b;
-        this.c = c;
     }
 
+    public int getA() {
+        return a;
+    }
 
+    public int getB() {
+        return b;
+    }
 }

@@ -9,7 +9,6 @@ import java.util.Timer;
 /**
  * Created by zyl06 on 2018/10/18.
  */
-
 @ApiServiceClassAnno(name = "AppCalculator", allPublicStaticApi = true)
 public class Calculator {
 
@@ -56,5 +55,9 @@ public class Calculator {
     @ApiServiceMethodAnno(provide = true, alias = "decrease")
     public int decr(int a) {
         return a - mIncrement;
+    }
+
+    public static int add(DataModel model) {
+        return model != null ? add(model.getA(), model.getB()) : 0;
     }
 }

@@ -2,11 +2,13 @@ package com.netease.libs.apiservice_process;
 
 import com.google.auto.service.AutoService;
 import com.netease.libs.apiservice.anno.ApiServiceClassAnno;
+import com.netease.libs.apiservice_process.generator.ApiBaseGenerator;
 import com.netease.libs.apiservice_process.generator.ApiFactoryGenerator;
 import com.netease.libs.apiservice_process.generator.ApiGenerator;
 import com.netease.libs.apiservice_process.generator.ApiRegisterGenerator;
 import com.netease.libs.apiservice_process.generator.StubClassGenerator;
 import com.netease.libs.apiservice_process.generator.StubFactoryGenerator;
+import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.TypeSpec;
 
@@ -73,10 +75,16 @@ public class ApiServiceProcess extends AbstractProcessor {
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnv) {
 
-        mMessager.printMessage(Diagnostic.Kind.WARNING, "api provider apt run begin");
+        mMessager.printMessage(Diagnostic.Kind.NOTE, "api provider apt run begin");
+
+        ElementUtil.API_GENERATORS.clear();
 
         List<BaseClassGenerator> classGenerators = new ArrayList<>();
         List<StubFactoryGenerator> stubFactoryGenerators = new ArrayList<>();
+
+        // api 接口的统一父接口
+        classGenerators.add(new ApiBaseGenerator(mMessager, mApiProjectPath));
+
         for (Element annoElement : roundEnv.getElementsAnnotatedWith(ApiServiceClassAnno.class)) {
             TypeElement annoClass = (TypeElement) annoElement;
             //检测是否是支持的注解类型，如果不是里面会报错
@@ -93,6 +101,7 @@ public class ApiServiceProcess extends AbstractProcessor {
 
             ApiGenerator apiGen = new ApiGenerator(providerClass, mMessager, mApiProjectPath, mPkgName);
             classGenerators.add(apiGen);
+            ElementUtil.API_GENERATORS.put(ClassName.get(annoClass), apiGen);
 
             StubClassGenerator stubGen = new StubClassGenerator(providerClass, mMessager, apiGen, mPkgName);
             classGenerators.add(stubGen);
@@ -126,7 +135,7 @@ public class ApiServiceProcess extends AbstractProcessor {
             }
         }
 
-        mMessager.printMessage(Diagnostic.Kind.WARNING, "api provider apt run finish");
+        mMessager.printMessage(Diagnostic.Kind.NOTE, "api provider apt run finish");
 
         return true;
     }

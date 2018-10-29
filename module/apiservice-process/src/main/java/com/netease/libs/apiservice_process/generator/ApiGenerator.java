@@ -49,6 +49,7 @@ public class ApiGenerator extends BaseApiClassGenerator {
     @Override
     public TypeSpec generate() {
         TypeSpec.Builder builder = interfaceBuilder(className())
+                .addSuperinterface(ApiBaseGenerator.getClassName())
                 .addModifiers(PUBLIC);
         builder.addJavadoc(mApiTarget.getQualifiedName().toString() + " 的 api 接口\n");
 
@@ -77,7 +78,8 @@ public class ApiGenerator extends BaseApiClassGenerator {
                 .methodBuilder(methodName)
                 .returns(TypeName.get(e.getReturnType()));
         for (VariableElement param : e.getParameters()) {
-            methodBuilder.addParameter(TypeName.get(param.asType()), param.getSimpleName().toString());
+            methodBuilder.addParameter(tryConvertApiTypeName(param),
+                    param.getSimpleName().toString());
         }
         for (TypeMirror throwType : e.getThrownTypes()) {
             methodBuilder.addException(TypeName.get(throwType));

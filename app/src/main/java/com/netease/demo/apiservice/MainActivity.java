@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.netease.demo.demomodule1.ModuleActivity;
-import com.netease.demo.demomodule1.api.ModuleFunctionApiFactory;
 import com.netease.demo.demomodule1.api_service.ModuleFunction;
+import com.netease.demo.demomodule1.api_service.factory.ModuleFunctionApiFactory;
 import com.netease.libs.apiservice.ApiService;
 
 public class MainActivity extends AppCompatActivity {

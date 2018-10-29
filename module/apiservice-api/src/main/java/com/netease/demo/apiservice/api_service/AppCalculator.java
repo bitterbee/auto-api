@@ -1,11 +1,12 @@
 package com.netease.demo.apiservice.api_service;
 
+import com.netease.libs.api_service.ApiBase;
 import java.util.Timer;
 
 /**
  * com.netease.demo.apiservice.Calculator 的 api 接口
  */
-public interface AppCalculator {
+public interface AppCalculator extends ApiBase {
   int appMinus(int a, int b);
 
   int add(int a, int b);
@@ -17,4 +18,6 @@ public interface AppCalculator {
   int increase(int a);
 
   int decrease(int a);
+
+  int add(AppDataModel model);
 }

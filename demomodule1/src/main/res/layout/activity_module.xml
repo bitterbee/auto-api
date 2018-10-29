@@ -19,4 +19,11 @@
         android:text="singleton foo1"
         android:textAllCaps="false"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onButton3Click"
+        android:text="add dataModel"
+        android:textAllCaps="false"/>
+
 </LinearLayout>

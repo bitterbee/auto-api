@@ -8,6 +8,7 @@ import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.processing.Messager;
@@ -27,6 +28,7 @@ public class StubClassGenerator extends BaseApiClassGenerator {
 
     ApiGenerator mApiGenerator;
     private boolean mMakeTargetField = false;
+    private static final String TARGET_FILED_NAME = "mTarget";
 
     public StubClassGenerator(ApiServiceClass providerClass, Messager messager,
                               ApiGenerator apiGenerator,
@@ -59,16 +61,28 @@ public class StubClassGenerator extends BaseApiClassGenerator {
 
         generate(builder);
 
+        addCustomFields(builder);
+        addCustomMethods(builder);
+
         return builder.build();
     }
 
-    // 在 addMethod 之后执行
-    @Override
+    protected void addCustomMethods(TypeSpec.Builder builder) {
+        MethodSpec.Builder methodBuilder = MethodSpec
+                .methodBuilder(ApiBaseGenerator.GET_TARGET_METHOD_NAME)
+                .returns(TypeName.OBJECT)
+                .addModifiers(Modifier.PUBLIC);
+        methodBuilder.addStatement(mMakeTargetField ?
+                "return " + TARGET_FILED_NAME :
+                "return null");
+        builder.addMethod(methodBuilder.build());
+    }
+
     protected void addCustomFields(TypeSpec.Builder builder) {
         // 生成成员变量
         if (mMakeTargetField) {
-            FieldSpec.Builder targetBuild = FieldSpec.builder(TypeName.get(mApiTarget.asType()), "mTarget",
-                    Modifier.PUBLIC, Modifier.STATIC);
+            FieldSpec.Builder targetBuild = FieldSpec.builder(TypeName.get(mApiTarget.asType()),
+                    TARGET_FILED_NAME, Modifier.PUBLIC);
             FieldSpec target = targetBuild.addJavadoc("非静态方法执行真正的对象\n").build();
             builder.addField(target);
         }
@@ -78,60 +92,72 @@ public class StubClassGenerator extends BaseApiClassGenerator {
     protected void addMethod(TypeSpec.Builder builder, ExecutableElement e, String methodName) {
         MethodSpec.Builder methodBuilder = MethodSpec
                 .methodBuilder(methodName)
+                .addModifiers(Modifier.PUBLIC)
                 .returns(TypeName.get(e.getReturnType()));
 
-        List<? extends VariableElement> params = e.getParameters();
-        for (VariableElement param : params) {
-            methodBuilder.addParameter(TypeName.get(param.asType()), param.getSimpleName().toString());
-        }
         for (TypeMirror throwType : e.getThrownTypes()) {
             methodBuilder.addException(TypeName.get(throwType));
         }
-        methodBuilder.addModifiers(Modifier.PUBLIC);
 
         StringBuilder sb = new StringBuilder(32);
-
-        if (ElementUtil.isStatic(e)) {
-            // 静态方法
-            if (e.getReturnType() != null && TypeName.get(e.getReturnType()) != TypeName.VOID) {
-                sb.append("return ");
-            }
+        if (e.getReturnType() != null && TypeName.get(e.getReturnType()) != TypeName.VOID) {
+            sb.append("return ");
+        }
+        if (ElementUtil.isStatic(e)) { // 静态方法
             sb.append("$T.")
                     .append(e.getSimpleName().toString())
                     .append("(");
-
-            int paramCount = params.size();
-            for (int i = 0; i < paramCount; i++) {
-                sb.append(params.get(i).getSimpleName().toString());
-                if (i < paramCount - 1) {
-                    sb.append(",");
-                }
-            }
-            sb.append(")");
-
-            methodBuilder.addStatement(sb.toString(), mApiTarget);
-        } else {
+        } else { // 非静态方法
             mMakeTargetField = true;
 
-            // 非静态方法
-            if (e.getReturnType() != null && TypeName.get(e.getReturnType()) != TypeName.VOID) {
-                sb.append("return ");
-            }
             sb.append("mTarget.")
                     .append(e.getSimpleName().toString())
                     .append("(");
+        }
 
-            int paramCount = params.size();
-            for (int i = 0; i < paramCount; i++) {
-                sb.append(params.get(i).getSimpleName().toString());
-                if (i < paramCount - 1) {
-                    sb.append(",");
-                }
+        List<Object> statementArgs = new ArrayList<>();
+        if (ElementUtil.isStatic(e)) { // 静态方法
+            statementArgs.add(mApiTarget);
+        }
+
+        List<? extends VariableElement> params = e.getParameters();
+        int paramCount = params.size();
+        for (int i = 0; i < paramCount; i++) {
+            VariableElement param = params.get(i);
+
+            TypeName apiTypeName = ElementUtil.getApiServiceClassName(param);
+            if (apiTypeName != null) {
+                methodBuilder.addParameter(apiTypeName,
+                        param.getSimpleName().toString());
+                statementArgs.add(ClassName.get(param.asType()));
+
+                sb.append("($T)")
+                        .append(param.getSimpleName().toString())
+                        .append(".")
+                        .append(ApiBaseGenerator.GET_TARGET_METHOD_NAME)
+                        .append("()");
+            } else {
+                methodBuilder.addParameter(ClassName.get(param.asType()), param.getSimpleName().toString());
+                sb.append(param.getSimpleName().toString());
             }
-            sb.append(")");
+
+            if (i < paramCount - 1) {
+                sb.append(",");
+            }
+        }
+        sb.append(")");
+
+        if (statementArgs.isEmpty()) {
             methodBuilder.addStatement(sb.toString());
+        } else {
+            methodBuilder.addStatement(sb.toString(), statementArgs.toArray());
         }
 
         builder.addMethod(methodBuilder.build());
+    }
+
+    @Override
+    protected void addFactoryMethod(TypeSpec.Builder builder, ExecutableElement e, String methodName) {
+        mMakeTargetField = true;
     }
 }

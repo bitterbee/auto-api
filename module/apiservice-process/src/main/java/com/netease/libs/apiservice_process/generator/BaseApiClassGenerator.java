@@ -3,9 +3,11 @@ package com.netease.libs.apiservice_process.generator;
 import com.netease.libs.apiservice.anno.ApiServiceClassBuildMethodAnno;
 import com.netease.libs.apiservice.anno.ApiServiceConstructAnno;
 import com.netease.libs.apiservice.anno.ApiServiceMethodAnno;
-import com.netease.libs.apiservice_process.BaseClassGenerator;
 import com.netease.libs.apiservice_process.ApiServiceClass;
+import com.netease.libs.apiservice_process.BaseClassGenerator;
 import com.netease.libs.apiservice_process.ElementUtil;
+import com.squareup.javapoet.ClassName;
+import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
 
 import javax.annotation.processing.Messager;
@@ -55,8 +57,6 @@ public abstract class BaseApiClassGenerator extends BaseClassGenerator {
                 runExeElement(builder, (ExecutableElement) e);
             }
         }
-
-        addCustomFields(builder);
     }
 
     private void runExeElement(TypeSpec.Builder builder, ExecutableElement e) {
@@ -92,5 +92,15 @@ public abstract class BaseApiClassGenerator extends BaseClassGenerator {
 
     protected void addClassBuildMethod(TypeSpec.Builder builder, ExecutableElement e, String methodName) {
 
+    }
+
+    /**
+     *
+     * @param e 具体 Element
+     * @return 返回 对应 Api 类 TypeName 或元素自身的 TypeName
+     */
+    public TypeName tryConvertApiTypeName(Element e) {
+        TypeName apiTypeName = ElementUtil.getApiServiceClassName(e);
+        return apiTypeName != null ? apiTypeName : ClassName.get(e.asType());
     }
 }
