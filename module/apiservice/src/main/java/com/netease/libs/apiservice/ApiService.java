@@ -8,9 +8,9 @@ import java.util.Map;
  */
 public class ApiService {
 
-    public static final Map<String, Object> APIS = new HashMap<>();
+    public static final Map<String, Object> API_FACTORYS = new HashMap<>();
 
-    public static <T> T getApi(String name) {
-        return (T) APIS.get(name);
+    public static <T> T getApiFactory(String name) {
+        return (T) API_FACTORYS.get(name);
     }
 }

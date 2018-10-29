@@ -1,10 +1,12 @@
 package com.netease.libs.apiservice_process;
 
 import com.google.auto.service.AutoService;
-import com.netease.libs.apiservice.anno.ApiServiceAnno;
-import com.netease.libs.apiservice_process.generator.ApiInterfaceGenerator;
+import com.netease.libs.apiservice.anno.ApiServiceClassAnno;
+import com.netease.libs.apiservice_process.generator.ApiFactoryGenerator;
+import com.netease.libs.apiservice_process.generator.ApiGenerator;
 import com.netease.libs.apiservice_process.generator.ApiRegisterGenerator;
-import com.netease.libs.apiservice_process.generator.ApiStubClassGenerator;
+import com.netease.libs.apiservice_process.generator.StubClassGenerator;
+import com.netease.libs.apiservice_process.generator.StubFactoryGenerator;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.TypeSpec;
 
@@ -41,7 +43,7 @@ public class ApiServiceProcess extends AbstractProcessor {
     private String mApiProjectPath;
 
     private Messager mMessager;
-    private Filer filer;
+    private Filer mFiler;
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv) {
@@ -54,12 +56,13 @@ public class ApiServiceProcess extends AbstractProcessor {
         }
 
         mMessager = processingEnv.getMessager();
-        filer = processingEnv.getFiler();
+        mFiler = processingEnv.getFiler();
+        BaseClassGenerator.sElementUtil = processingEnv.getElementUtils();
     }
 
     @Override
     public Set<String> getSupportedAnnotationTypes() {
-        return singleton(ApiServiceAnno.class.getCanonicalName());
+        return singleton(ApiServiceClassAnno.class.getCanonicalName());
     }
 
     @Override
@@ -73,38 +76,43 @@ public class ApiServiceProcess extends AbstractProcessor {
         mMessager.printMessage(Diagnostic.Kind.WARNING, "api provider apt run begin");
 
         List<BaseClassGenerator> classGenerators = new ArrayList<>();
-        List<ApiStubClassGenerator> stubClassGenerators = new ArrayList<>();
-        for (Element annoElement : roundEnv.getElementsAnnotatedWith(ApiServiceAnno.class)) {
+        List<StubFactoryGenerator> stubFactoryGenerators = new ArrayList<>();
+        for (Element annoElement : roundEnv.getElementsAnnotatedWith(ApiServiceClassAnno.class)) {
             TypeElement annoClass = (TypeElement) annoElement;
             //检测是否是支持的注解类型，如果不是里面会报错
-            if (!isValidElement(annoClass, ApiServiceAnno.class)) {
+            if (!isValidElement(annoClass, ApiServiceClassAnno.class)) {
                 continue;
             }
             //获取到信息，把注解类的信息加入到列表中
-            ApiServiceAnno anno = annoElement.getAnnotation(ApiServiceAnno.class);
+            ApiServiceClassAnno anno = annoElement.getAnnotation(ApiServiceClassAnno.class);
 
             ApiServiceClass providerClass = new ApiServiceClass();
             providerClass.clazz = annoClass;
             providerClass.name = anno.name();
-            providerClass.provideStaticApi = anno.provideStaticApi();
-            providerClass.includeSuper = anno.includeSuper();
+            providerClass.allPublicStaticApi = anno.allPublicStaticApi();
 
-            ApiInterfaceGenerator apiGenerator = new ApiInterfaceGenerator(providerClass, mMessager, mApiProjectPath, mPkgName);
-            classGenerators.add(apiGenerator);
+            ApiGenerator apiGen = new ApiGenerator(providerClass, mMessager, mApiProjectPath, mPkgName);
+            classGenerators.add(apiGen);
 
-            ApiStubClassGenerator stubGenerator = new ApiStubClassGenerator(providerClass, mMessager, apiGenerator, mPkgName);
-            stubClassGenerators.add(stubGenerator);
-            classGenerators.add(stubGenerator);
+            StubClassGenerator stubGen = new StubClassGenerator(providerClass, mMessager, apiGen, mPkgName);
+            classGenerators.add(stubGen);
+
+            ApiFactoryGenerator apiFactoryGen = new ApiFactoryGenerator(providerClass, mMessager, mApiProjectPath, mPkgName, apiGen);
+            classGenerators.add(apiFactoryGen);
+
+            StubFactoryGenerator stubFactoryGen = new StubFactoryGenerator(providerClass, mMessager, mPkgName, apiGen, stubGen, apiFactoryGen);
+            classGenerators.add(stubFactoryGen);
+            stubFactoryGenerators.add(stubFactoryGen);
         }
 
-        ApiRegisterGenerator registerGenerator = new ApiRegisterGenerator(mMessager, mPkgName, stubClassGenerators);
+        ApiRegisterGenerator registerGenerator = new ApiRegisterGenerator(mMessager, mPkgName, stubFactoryGenerators);
         classGenerators.add(registerGenerator);
 
         for (BaseClassGenerator generator : classGenerators) {
             try {
                 TypeSpec generatedClass = generator.generate();
                 JavaFile javaFile = builder(generator.packageName(), generatedClass).build();
-                generator.writeTo(javaFile, filer);
+                generator.writeTo(javaFile, mFiler);
             } catch (FilerException e) {
                 e.printStackTrace();
             } catch (IOException e) {

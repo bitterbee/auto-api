@@ -23,14 +23,14 @@ import static javax.lang.model.element.Modifier.PUBLIC;
 public class ApiRegisterGenerator extends BaseClassGenerator {
 
     private String mPkgName;
-    private List<ApiStubClassGenerator> mApiStubsGenerators = new ArrayList<>();
+    private List<StubFactoryGenerator> mStubFactoryGenerators = new ArrayList<>();
 
     public ApiRegisterGenerator(Messager messager,
                                 String pkgName,
-                                List<ApiStubClassGenerator> apiStubClassGenerators) {
+                                List<StubFactoryGenerator> stubFactoryGenerators) {
         super(messager);
         mPkgName = pkgName;
-        mApiStubsGenerators = apiStubClassGenerators;
+        mStubFactoryGenerators = stubFactoryGenerators;
     }
 
     @Override
@@ -53,11 +53,11 @@ public class ApiRegisterGenerator extends BaseClassGenerator {
                 .addModifiers(Modifier.STATIC, Modifier.PUBLIC)
                 .addJavadoc("集成模块的 ApiService 初始化方法\n")
                 .returns(TypeName.VOID);
-        for (ApiStubClassGenerator apiStub : mApiStubsGenerators) {
-            ClassName apiStubClass = ClassName.get(apiStub.packageName(), apiStub.className());
+        for (StubFactoryGenerator subFactory : mStubFactoryGenerators) {
+            ClassName stubFactoryType = ClassName.get(subFactory.packageName(), subFactory.className());
 
-            initMethod.addStatement("$T.APIS.put($S, new $T())", ApiService.class,
-                    apiStub.mApiGenerator.className(), apiStubClass);
+            initMethod.addStatement("$T.API_FACTORYS.put($S, new $T())", ApiService.class,
+                    subFactory.mApiName, stubFactoryType);
         }
         builder.addMethod(initMethod.build());
 

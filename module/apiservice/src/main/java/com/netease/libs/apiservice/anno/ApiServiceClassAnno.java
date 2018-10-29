@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.CLASS)
-public @interface ApiServiceAnno {
+public @interface ApiServiceClassAnno {
     /**
      * 接口提供者名字
      * @return
@@ -18,14 +18,8 @@ public @interface ApiServiceAnno {
     String name() default "";
 
     /**
-     * 是否提供 public static 工具方法？
+     * 是否提供全部 public static 工具方法？
      * @return
      */
-    boolean provideStaticApi() default false;
-
-    /**
-     * 是否解析父类
-     * @return
-     */
-    boolean includeSuper() default false;
+    boolean allPublicStaticApi() default false;
 }

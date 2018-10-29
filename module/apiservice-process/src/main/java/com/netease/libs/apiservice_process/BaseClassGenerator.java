@@ -9,6 +9,7 @@ import java.io.IOException;
 import javax.annotation.processing.Filer;
 import javax.annotation.processing.Messager;
 import javax.lang.model.element.Element;
+import javax.lang.model.util.Elements;
 import javax.tools.Diagnostic;
 
 /**
@@ -18,6 +19,7 @@ import javax.tools.Diagnostic;
 public abstract class BaseClassGenerator {
 
     private Messager mMessager;
+    static Elements sElementUtil;
 
     public BaseClassGenerator(Messager messager) {
         this.mMessager = messager;

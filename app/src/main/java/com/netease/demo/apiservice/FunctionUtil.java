@@ -4,18 +4,15 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.util.Log;
 
-import com.netease.libs.apiservice.anno.ApiServiceAnno;
+import com.netease.libs.apiservice.anno.ApiServiceClassAnno;
 
 import java.io.File;
-import java.util.Timer;
 
 /**
- * Created by zyl06 on 2018/10/18.
+ * Created by zyl06 on 2018/10/27.
  */
-
-@ApiServiceAnno(provideStaticApi = true)
+@ApiServiceClassAnno(name = "AppFunction", allPublicStaticApi = true)
 public class FunctionUtil {
-
     public static long getSDAvailableSize() {
         if (Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED)) {
             try {
@@ -31,25 +28,7 @@ public class FunctionUtil {
         return 0;
     }
 
-    public static void doNoReturn() {
-        Log.i("FunctionUtil", "doNoReturn");
-    }
-
-    public static int add(int a, int b) {
-        return a + b;
-    }
-
-
-    public static Timer getTimer() {
-        return null;
-    }
-
-//    public static DataModel genDataModel() {
-//        return new DataModel();
-//    }
-
-    public static class DataModel {
-        public int a;
-        public long b;
+    public static void noReturn() {
+        Log.i("Calculator", "noReturn");
     }
 }

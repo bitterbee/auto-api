@@ -12,7 +12,5 @@ public class ApiServiceClass {
     // api provider 名称
     public String name;
     // 是否提供全部的静态方法
-    public boolean provideStaticApi;
-    // 是否解析父类
-    public boolean includeSuper;
+    public boolean allPublicStaticApi;
 }
