@@ -18,8 +18,14 @@ public @interface ApiServiceClassAnno {
     String name() default "";
 
     /**
-     * 是否提供全部 public static 工具方法？
+     * 是否提供全部 public static 方法？
      * @return
      */
     boolean allPublicStaticApi() default false;
+
+    /**
+     * 是否提供全部 public 方法？
+     * @return
+     */
+    boolean allPublicNormalApi() default false;
 }

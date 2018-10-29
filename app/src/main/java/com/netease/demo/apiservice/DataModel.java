@@ -6,7 +6,7 @@ import com.netease.libs.apiservice.anno.ApiServiceConstructAnno;
 /**
  * Created by zyl06 on 2018/10/27.
  */
-@ApiServiceClassAnno(name = "AppDataModel")
+@ApiServiceClassAnno(name = "AppDataModel", allPublicNormalApi = true)
 public class DataModel {
 
     private int a;

@@ -17,7 +17,6 @@ import com.netease.libs.apiservice.ApiService;
 /**
  * Created by zyl06 on 2018/10/26.
  */
-
 public class ModuleActivity extends Activity {
 
     private AppCalculator mCalculator;
@@ -50,4 +49,12 @@ public class ModuleActivity extends Activity {
         Toast.makeText(this, "Calculator add DataModel(4, 5) is " + result, Toast.LENGTH_LONG).show();
     }
 
+    public void onButton4Click(View v) {
+        AppDataModelApiFactory apiFactory = ApiService.getApiFactory("AppDataModel");
+        AppDataModel model1 = apiFactory.newInstance(4, 5);
+        AppDataModel model2 = apiFactory.newInstance(1, 2);
+        AppDataModel result = mCalculator.add(model1, model2);
+        Toast.makeText(this, String.format("Calculator add (4, 5) with (1, 2)  is (%d, %d)", result.getA(), result.getB()),
+                Toast.LENGTH_LONG).show();
+    }
 }

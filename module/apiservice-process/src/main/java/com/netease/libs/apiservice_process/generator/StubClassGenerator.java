@@ -26,7 +26,7 @@ import static javax.lang.model.element.Modifier.PUBLIC;
 
 public class StubClassGenerator extends BaseApiClassGenerator {
 
-    ClassName mApiClassName;
+    private ClassName mApiClassName;
     private boolean mMakeTargetField = false;
     private static final String TARGET_FILED_NAME = "mTarget";
 

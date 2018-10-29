@@ -26,4 +26,11 @@
         android:text="add dataModel"
         android:textAllCaps="false"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onButton4Click"
+        android:text="add dataModel with dataModel"
+        android:textAllCaps="false"/>
+
 </LinearLayout>

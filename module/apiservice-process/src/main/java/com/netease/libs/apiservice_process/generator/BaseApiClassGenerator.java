@@ -61,19 +61,16 @@ public abstract class BaseApiClassGenerator extends BaseClassGenerator {
     }
 
     private void runExeElement(TypeSpec.Builder builder, ExecutableElement e) {
-        if (e.getAnnotation(ApiServiceConstructAnno.class) != null) {
-            return;
-        }
-
         ApiServiceMethodAnno anno = e.getAnnotation(ApiServiceMethodAnno.class);
         if (anno != null && !anno.provide()) {
             return;
         }
 
         boolean provide = (anno != null && anno.provide()) ||
-                (mProviderClass.allPublicStaticApi && ElementUtil.isStatic(e));
+                (mProviderClass.allPublicStaticApi && ElementUtil.isStatic(e)) ||
+                (mProviderClass.allPublicNormalApi && !ElementUtil.isStatic(e));
         if (provide) {
-            String methodName = anno != null && anno.alias() != null && !anno.alias().isEmpty() ?
+            String methodName = anno != null && !anno.alias().isEmpty() ?
                     anno.alias() : e.getSimpleName().toString();
             addMethod(builder, e, methodName);
         }

@@ -11,6 +11,9 @@ public class ApiServiceClass {
     public TypeElement clazz;
     // api provider 名称
     public String name;
-    // 是否提供全部的静态方法
+    // 是否提供全部的 public static 方法
     public boolean allPublicStaticApi;
+
+    // 是否提供全部的 public normal 方法
+    public boolean allPublicNormalApi;
 }
