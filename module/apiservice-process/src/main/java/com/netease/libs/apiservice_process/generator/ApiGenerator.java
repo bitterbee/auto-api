@@ -76,7 +76,7 @@ public class ApiGenerator extends BaseApiClassGenerator {
     protected void addMethod(TypeSpec.Builder builder, ExecutableElement e, String methodName) {
         MethodSpec.Builder methodBuilder = MethodSpec
                 .methodBuilder(methodName)
-                .returns(TypeName.get(e.getReturnType()));
+                .returns(tryConvertApiTypeName(e.getReturnType()));
         for (VariableElement param : e.getParameters()) {
             methodBuilder.addParameter(tryConvertApiTypeName(param),
                     param.getSimpleName().toString());

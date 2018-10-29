@@ -14,6 +14,7 @@ import javax.annotation.processing.Messager;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.TypeElement;
+import javax.lang.model.type.TypeMirror;
 
 /**
  * Created by zyl06 on 2018/10/18.
@@ -96,11 +97,21 @@ public abstract class BaseApiClassGenerator extends BaseClassGenerator {
 
     /**
      *
-     * @param e 具体 Element
+     * @param e 具体真实 Element
      * @return 返回 对应 Api 类 TypeName 或元素自身的 TypeName
      */
     public TypeName tryConvertApiTypeName(Element e) {
         TypeName apiTypeName = ElementUtil.getApiServiceClassName(e);
         return apiTypeName != null ? apiTypeName : ClassName.get(e.asType());
+    }
+
+    /**
+     *
+     * @param type 真实类型
+     * @return 返回 对应 Api 类 TypeName 或元素自身的 TypeName
+     */
+    public TypeName tryConvertApiTypeName(TypeMirror type) {
+        TypeName apiTypeName = ElementUtil.getApiServiceClassName(type);
+        return apiTypeName != null ? apiTypeName : ClassName.get(type);
     }
 }

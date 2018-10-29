@@ -26,15 +26,15 @@ import static javax.lang.model.element.Modifier.PUBLIC;
 
 public class StubClassGenerator extends BaseApiClassGenerator {
 
-    ApiGenerator mApiGenerator;
+    ClassName mApiClassName;
     private boolean mMakeTargetField = false;
     private static final String TARGET_FILED_NAME = "mTarget";
 
     public StubClassGenerator(ApiServiceClass providerClass, Messager messager,
-                              ApiGenerator apiGenerator,
+                              ApiGenerator apiGen,
                               String packageName) {
         super(providerClass, messager, packageName);
-        this.mApiGenerator = apiGenerator;
+        this.mApiClassName = ClassName.get(apiGen.packageName(), apiGen.className());
     }
 
     @Override
@@ -55,7 +55,7 @@ public class StubClassGenerator extends BaseApiClassGenerator {
     public TypeSpec generate() {
 
         TypeSpec.Builder builder = classBuilder(className())
-                .addSuperinterface(ClassName.get(mApiGenerator.packageName(), mApiGenerator.className()))
+                .addSuperinterface(mApiClassName)
                 .addModifiers(PUBLIC);
         builder.addJavadoc(mApiTarget.getQualifiedName().toString() + " 的 stub class\n");
 
@@ -90,10 +90,13 @@ public class StubClassGenerator extends BaseApiClassGenerator {
 
     @Override
     protected void addMethod(TypeSpec.Builder builder, ExecutableElement e, String methodName) {
+        TypeName returnApiType = ElementUtil.getApiServiceClassName(e.getReturnType());
+
         MethodSpec.Builder methodBuilder = MethodSpec
                 .methodBuilder(methodName)
                 .addModifiers(Modifier.PUBLIC)
-                .returns(TypeName.get(e.getReturnType()));
+                // 如果是自定义类型，需要修改成 api 类
+                .returns(returnApiType != null ? returnApiType : ClassName.get(e.getReturnType()));
 
         for (TypeMirror throwType : e.getThrownTypes()) {
             methodBuilder.addException(TypeName.get(throwType));
@@ -101,7 +104,13 @@ public class StubClassGenerator extends BaseApiClassGenerator {
 
         StringBuilder sb = new StringBuilder(32);
         if (e.getReturnType() != null && TypeName.get(e.getReturnType()) != TypeName.VOID) {
-            sb.append("return ");
+            if (returnApiType != null) {
+                TypeName returnStubType = ElementUtil.getStubServiceClassName(e.getReturnType());
+                methodBuilder.addStatement("$T stub = new $T()", returnStubType, returnStubType);
+                sb.append("stub.mTarget = ");
+            } else {
+                sb.append("return ");
+            }
         }
         if (ElementUtil.isStatic(e)) { // 静态方法
             sb.append("$T.")
@@ -151,6 +160,11 @@ public class StubClassGenerator extends BaseApiClassGenerator {
             methodBuilder.addStatement(sb.toString());
         } else {
             methodBuilder.addStatement(sb.toString(), statementArgs.toArray());
+        }
+
+        // 如果是自定义类型，需要重新添加return，将 api 类返回
+        if (returnApiType != null) {
+            methodBuilder.addStatement("return stub");
         }
 
         builder.addMethod(methodBuilder.build());

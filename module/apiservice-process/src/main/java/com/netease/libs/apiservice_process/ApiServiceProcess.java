@@ -78,6 +78,7 @@ public class ApiServiceProcess extends AbstractProcessor {
         mMessager.printMessage(Diagnostic.Kind.NOTE, "api provider apt run begin");
 
         ElementUtil.API_GENERATORS.clear();
+        ElementUtil.STUB_GENERATORS.clear();
 
         List<BaseClassGenerator> classGenerators = new ArrayList<>();
         List<StubFactoryGenerator> stubFactoryGenerators = new ArrayList<>();
@@ -105,6 +106,7 @@ public class ApiServiceProcess extends AbstractProcessor {
 
             StubClassGenerator stubGen = new StubClassGenerator(providerClass, mMessager, apiGen, mPkgName);
             classGenerators.add(stubGen);
+            ElementUtil.STUB_GENERATORS.put(ClassName.get(annoClass), stubGen);
 
             ApiFactoryGenerator apiFactoryGen = new ApiFactoryGenerator(providerClass, mMessager, mApiProjectPath, mPkgName, apiGen);
             classGenerators.add(apiFactoryGen);
@@ -124,7 +126,7 @@ public class ApiServiceProcess extends AbstractProcessor {
                 generator.writeTo(javaFile, mFiler);
             } catch (FilerException e) {
                 e.printStackTrace();
-            } catch (IOException e) {
+            } catch (Exception e) {
                 StringBuilder sb = new StringBuilder(128);
                 sb.append(e.toString()).append("\n");
                 for (StackTraceElement element : e.getStackTrace()) {

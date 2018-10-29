@@ -60,4 +60,9 @@ public class Calculator {
     public static int add(DataModel model) {
         return model != null ? add(model.getA(), model.getB()) : 0;
     }
+
+    public static DataModel add(DataModel a, DataModel b) {
+        return a == null || b == null ? null :
+                new DataModel(a.getA() + b.getA(), a.getB() + b.getB());
+    }
 }

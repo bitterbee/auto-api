@@ -2,6 +2,7 @@ package com.netease.libs.apiservice_process;
 
 import com.netease.libs.apiservice.anno.ApiServiceClassAnno;
 import com.netease.libs.apiservice_process.generator.ApiGenerator;
+import com.netease.libs.apiservice_process.generator.StubClassGenerator;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.TypeName;
 
@@ -12,6 +13,7 @@ import javax.lang.model.element.Element;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.element.VariableElement;
+import javax.lang.model.type.TypeMirror;
 
 /**
  * Created by zyl06 on 2018/10/18.
@@ -19,6 +21,7 @@ import javax.lang.model.element.VariableElement;
 
 public class ElementUtil {
     static final Map<TypeName, ApiGenerator> API_GENERATORS = new HashMap<>();
+    static final Map<TypeName, StubClassGenerator> STUB_GENERATORS = new HashMap<>();
 
     public static boolean isPublic(Element element) {
         return element.getModifiers().contains(Modifier.PUBLIC);
@@ -53,5 +56,15 @@ public class ElementUtil {
         }
 
         return null;
+    }
+
+    public static TypeName getApiServiceClassName(TypeMirror type) {
+        ApiGenerator apiGen = API_GENERATORS.get(ClassName.get(type));
+        return apiGen != null ? ClassName.get(apiGen.packageName(), apiGen.className()) : null;
+    }
+
+    public static TypeName getStubServiceClassName(TypeMirror type) {
+        StubClassGenerator apiGen = STUB_GENERATORS.get(ClassName.get(type));
+        return apiGen != null ? ClassName.get(apiGen.packageName(), apiGen.className()) : null;
     }
 }
