@@ -12,7 +12,6 @@ import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.TypeSpec;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -60,6 +59,11 @@ public class ApiServiceProcess extends AbstractProcessor {
         mMessager = processingEnv.getMessager();
         mFiler = processingEnv.getFiler();
         BaseClassGenerator.sElementUtil = processingEnv.getElementUtils();
+
+        FileUtil.sFromPkgName = mPkgName;
+        FileUtil.sToProjectPath = mApiProjectPath;
+        FileUtil.deleteRecord();
+        mMessager.printMessage(Diagnostic.Kind.NOTE, "delete record.txt");
     }
 
     @Override
@@ -84,7 +88,7 @@ public class ApiServiceProcess extends AbstractProcessor {
         List<StubFactoryGenerator> stubFactoryGenerators = new ArrayList<>();
 
         // api 接口的统一父接口
-        classGenerators.add(new ApiBaseGenerator(mMessager, mApiProjectPath));
+        classGenerators.add(new ApiBaseGenerator(mMessager));
 
         for (Element annoElement : roundEnv.getElementsAnnotatedWith(ApiServiceClassAnno.class)) {
             TypeElement annoClass = (TypeElement) annoElement;
@@ -101,7 +105,7 @@ public class ApiServiceProcess extends AbstractProcessor {
             providerClass.allPublicStaticApi = anno.allPublicStaticApi();
             providerClass.allPublicNormalApi = anno.allPublicNormalApi();
 
-            ApiGenerator apiGen = new ApiGenerator(providerClass, mMessager, mApiProjectPath, mPkgName);
+            ApiGenerator apiGen = new ApiGenerator(providerClass, mMessager, mPkgName);
             classGenerators.add(apiGen);
             ElementUtil.API_GENERATORS.put(ClassName.get(annoClass), apiGen);
 
@@ -109,7 +113,7 @@ public class ApiServiceProcess extends AbstractProcessor {
             classGenerators.add(stubGen);
             ElementUtil.STUB_GENERATORS.put(ClassName.get(annoClass), stubGen);
 
-            ApiFactoryGenerator apiFactoryGen = new ApiFactoryGenerator(providerClass, mMessager, mApiProjectPath, mPkgName, apiGen);
+            ApiFactoryGenerator apiFactoryGen = new ApiFactoryGenerator(providerClass, mMessager, mPkgName, apiGen);
             classGenerators.add(apiFactoryGen);
 
             StubFactoryGenerator stubFactoryGen = new StubFactoryGenerator(providerClass, mMessager, mPkgName, apiGen, stubGen, apiFactoryGen);

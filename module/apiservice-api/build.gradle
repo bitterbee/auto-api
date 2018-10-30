@@ -17,7 +17,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
@@ -28,9 +27,72 @@ dependencies {
     androidTestImplementation "com.android.support.test.espresso:espresso-core:${TEST_ESPRESSO_CORE_VERSION}"
 }
 
-//clean.doLast {
-//    def apiDir = "${project.projectDir}/src/main/java/com/"
-//    println apiDir.toString()
-//    File file = file(apiDir)
-//    file.deleteDir()
-//}
+clean.doLast {
+    def recordDir = file("${project.projectDir}/api_records/")
+    if (!recordDir.exists() || !recordDir.directory) {
+        return
+    }
+
+    def contents = new ArrayList<String>()
+    for (File recordFile : recordDir.listFiles()) {
+        if (recordFile.exists() && !recordFile.directory) {
+            def text = recordFile.text
+            if (text != null && !text.empty) {
+                contents.add(recordFile.text)
+            }
+        }
+    }
+
+    if (contents.empty) {
+        return
+    }
+
+    def sourcePath = "${project.projectDir}/src/main/java/"
+    def sourceDir = file(sourcePath)
+    def records = new ArrayList<String>()
+    for (String content : contents) {
+        for (String r : content.split(";\\n")) {
+            def record = r.trim()
+            if (record != null && !record.isEmpty()) {
+                // println "record file " + sourcePath + record
+                records.add(sourcePath + record)
+            }
+        }
+    }
+
+    def removePaths = subtract(recursivlyGetFiles(sourceDir), records)
+    for (String path : removePaths) {
+        if (path.endsWith(".java")) {
+            file(path).delete()
+            println "remove file " + path
+        }
+    }
+}
+
+List<String> subtract(List<String> a, List<String> b) {
+    if (a == null || a.empty || b == null || b.empty) {
+        return a
+    }
+    def res = new ArrayList<String>(a)
+    for (String item : b) {
+        if (res.contains(item)) {
+            res.remove(item)
+        }
+    }
+    return res
+}
+
+List<String> recursivlyGetFiles(File dir) {
+    def result = new ArrayList<String>()
+    if (dir == null || !dir.exists() || !dir.directory) {
+        return result
+    }
+    for (File sub : dir.listFiles()) {
+        if (sub.directory) {
+            result.addAll(recursivlyGetFiles(sub))
+        } else {
+            result.add(sub.absolutePath)
+        }
+    }
+    return result
+}

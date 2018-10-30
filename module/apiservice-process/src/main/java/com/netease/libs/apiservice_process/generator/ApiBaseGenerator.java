@@ -1,6 +1,7 @@
 package com.netease.libs.apiservice_process.generator;
 
 import com.netease.libs.apiservice_process.BaseClassGenerator;
+import com.netease.libs.apiservice_process.FileUtil;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
@@ -8,6 +9,7 @@ import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.annotation.processing.Filer;
@@ -27,11 +29,8 @@ public class ApiBaseGenerator extends BaseClassGenerator {
     private static final String CLASS_NAME = "ApiBase";
     public static final String GET_TARGET_METHOD_NAME = "getApiServiceTarget";
 
-    private String mToPath;
-
-    public ApiBaseGenerator(Messager messager, String apiProjectPath) {
+    public ApiBaseGenerator(Messager messager) {
         super(messager);
-        mToPath = apiProjectPath;
     }
 
     @Override
@@ -61,16 +60,7 @@ public class ApiBaseGenerator extends BaseClassGenerator {
 
     @Override
     public void writeTo(JavaFile javaFile, Filer filer) throws IOException {
-        String to = mToPath + "/src/main/java/";
-        File toDir = new File(to);
-        if (!toDir.exists()) {
-            boolean success = toDir.mkdirs();
-            if (!success) {
-                printError(to + " folder not exists!!!");
-                return;
-            }
-        }
-        javaFile.writeTo(toDir);
+        FileUtil.writeTo(javaFile, mMessager);
     }
 
     public static ClassName getClassName() {

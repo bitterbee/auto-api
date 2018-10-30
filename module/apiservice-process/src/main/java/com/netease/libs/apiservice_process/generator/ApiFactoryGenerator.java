@@ -1,6 +1,7 @@
 package com.netease.libs.apiservice_process.generator;
 
 import com.netease.libs.apiservice_process.ApiServiceClass;
+import com.netease.libs.apiservice_process.FileUtil;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
@@ -25,13 +26,11 @@ import static javax.lang.model.element.Modifier.PUBLIC;
 
 public class ApiFactoryGenerator extends BaseApiClassGenerator {
 
-    private String mToPath;
     private ClassName mReturnType;
     private int mFactoryMethodCount = 0;
 
-    public ApiFactoryGenerator(ApiServiceClass providerClass, Messager messager, String toPath, String pkgName, ApiGenerator apiGenerator) {
+    public ApiFactoryGenerator(ApiServiceClass providerClass, Messager messager, String pkgName, ApiGenerator apiGenerator) {
         super(providerClass, messager, pkgName);
-        this.mToPath = toPath;
         mReturnType = ClassName.get(apiGenerator.packageName(), apiGenerator.className());
     }
 
@@ -66,16 +65,7 @@ public class ApiFactoryGenerator extends BaseApiClassGenerator {
 
     @Override
     public void writeTo(JavaFile javaFile, Filer filer) throws IOException {
-        String to = mToPath + "/src/main/java/";
-        File toDir = new File(to);
-        if (!toDir.exists()) {
-            boolean success = toDir.mkdirs();
-            if (!success) {
-                printError(to + " folder not exists!!!");
-                return;
-            }
-        }
-        javaFile.writeTo(toDir);
+        FileUtil.writeTo(javaFile, mMessager);
     }
 
     @Override

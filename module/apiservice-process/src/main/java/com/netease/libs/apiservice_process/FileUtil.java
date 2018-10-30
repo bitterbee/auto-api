@@ -1,17 +1,84 @@
 package com.netease.libs.apiservice_process;
 
+import com.squareup.javapoet.JavaFile;
+
 import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+
+import javax.annotation.processing.Messager;
+import javax.tools.Diagnostic;
 
 /**
  * Created by zyl06 on 2018/10/19.
  */
 
-class FileUtil {
+public class FileUtil {
+
+    public static String sToProjectPath;
+    public static String sFromPkgName;
+
+    public static void writeTo(JavaFile javaFile,
+                               Messager messager) throws IOException {
+        String to = sToProjectPath + "/src/main/java/";
+        File toDir = new File(to);
+        if (!toDir.exists()) {
+            boolean success = toDir.mkdirs();
+            if (!success) {
+                messager.printMessage(Diagnostic.Kind.ERROR,
+                        to + " folder not exists!!!");
+                return;
+            }
+        }
+        javaFile.writeTo(toDir);
+
+        // 生成 record 文件
+        String pkgName = javaFile.packageName;
+        String name = javaFile.typeSpec.name;
+
+        String relativePath = null;
+        if (pkgName == null || pkgName.isEmpty()) {
+            relativePath = name + ".java";
+
+        } else {
+            pkgName = pkgName.replaceAll("\\.", "/");
+            relativePath = pkgName + "/" + name + ".java";
+        }
+
+        String filePath = to + relativePath;
+        messager.printMessage(Diagnostic.Kind.NOTE, "java filePath = " + filePath);
+
+        FileWriter fw = null;
+        try {
+            File file = new File(getRecordFilePath());
+            if (!file.exists()) {
+                file.getParentFile().mkdirs();
+                file.createNewFile();
+            }
+
+            fw = new FileWriter(file, true);
+            fw.append(relativePath).append(";").append("\n");
+            fw.flush();
+        } catch (IOException e) {
+            messager.printMessage(Diagnostic.Kind.ERROR, e.toString());
+        } finally {
+            safeClose(fw);
+        }
+    }
+
+    public static String getRecordFilePath() {
+        return sFromPkgName == null || sFromPkgName.isEmpty() ?
+                sToProjectPath + "/api_records/records.txt" :
+                sToProjectPath + "/api_records/" + sFromPkgName + ".records.txt";
+    }
+
+    public static void deleteRecord() {
+        deleteFile(getRecordFilePath());
+    }
 
     // 不处理文件夹
     public static boolean deleteFile(String path) {

@@ -24,7 +24,7 @@ public @interface ApiServiceClassAnno {
     boolean allPublicStaticApi() default false;
 
     /**
-     * 是否提供全部 public 方法？
+     * 是否提供全部 public（非 static） 方法？
      * @return
      */
     boolean allPublicNormalApi() default false;
