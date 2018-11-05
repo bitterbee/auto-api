@@ -1,4 +1,4 @@
-package com.netease.demo.apiservice;
+package com.netease.demo.apiservice.http;
 
 import com.netease.libs.apiservice.anno.ApiServiceClassAnno;
 

@@ -1,6 +1,5 @@
 package com.netease.libs.apiservice_process.generator;
 
-import com.netease.libs.apiservice.anno.ApiServiceCallbackAnno;
 import com.netease.libs.apiservice_process.ApiServiceClass;
 import com.netease.libs.apiservice_process.ElementUtil;
 import com.squareup.javapoet.ClassName;
@@ -17,24 +16,23 @@ import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.TypeMirror;
-import javax.tools.Diagnostic;
 
 import static com.squareup.javapoet.TypeSpec.classBuilder;
 import static javax.lang.model.element.Modifier.PUBLIC;
 
 /**
- * Created by zyl06 on 2018/10/18.
+ * Created by zyl06 on 2018/11/5.
+ * 针对 interface
  */
-
-public class StubClassGenerator extends BaseApiClassGenerator {
+public class CallbackClassGenerator extends BaseApiClassGenerator {
 
     private ClassName mApiClassName;
     private boolean mMakeTargetField = false;
     private static final String TARGET_FILED_NAME = "mTarget";
 
-    public StubClassGenerator(ApiServiceClass providerClass, Messager messager,
-                              ApiGenerator apiGen,
-                              String packageName) {
+    public CallbackClassGenerator(ApiServiceClass providerClass, Messager messager,
+                                  ApiGenerator apiGen,
+                                  String packageName) {
         super(providerClass, messager, packageName);
         this.mApiClassName = ClassName.get(apiGen.packageName(), apiGen.className());
     }
@@ -48,16 +46,16 @@ public class StubClassGenerator extends BaseApiClassGenerator {
 
     @Override
     public String className() {
-        return className("Stub", "Stub");
+        return className("Callback", "Callback");
     }
 
     @Override
     public TypeSpec generate() {
 
         TypeSpec.Builder builder = classBuilder(className())
-                .addSuperinterface(mApiClassName)
+                .addSuperinterface(TypeName.get(mApiTarget.asType()))
                 .addModifiers(PUBLIC);
-        builder.addJavadoc(mApiTarget.getQualifiedName().toString() + " 的 stub class\n");
+        builder.addJavadoc(mApiTarget.getQualifiedName().toString() + " 的 callback class\n");
 
         generate(builder);
 
@@ -81,9 +79,9 @@ public class StubClassGenerator extends BaseApiClassGenerator {
     protected void addCustomFields(TypeSpec.Builder builder) {
         // 生成成员变量
         if (mMakeTargetField) {
-            FieldSpec.Builder targetBuild = FieldSpec.builder(TypeName.get(mApiTarget.asType()),
+            FieldSpec.Builder targetBuild = FieldSpec.builder(mApiClassName,
                     TARGET_FILED_NAME, Modifier.PUBLIC);
-            FieldSpec target = targetBuild.addJavadoc("非静态方法执行真正的对象\n").build();
+            FieldSpec target = targetBuild.addJavadoc("Callback 真正的对象\n").build();
             builder.addField(target);
         }
     }
@@ -119,8 +117,7 @@ public class StubClassGenerator extends BaseApiClassGenerator {
         } else { // 非静态方法
             mMakeTargetField = true;
 
-            sb.append(TARGET_FILED_NAME)
-                    .append(".")
+            sb.append(TARGET_FILED_NAME).append(".")
                     .append(e.getSimpleName().toString())
                     .append("(");
         }
@@ -139,26 +136,13 @@ public class StubClassGenerator extends BaseApiClassGenerator {
             if (apiTypeName != null) {
                 methodBuilder.addParameter(apiTypeName,
                         param.getSimpleName().toString());
+                statementArgs.add(ClassName.get(param.asType()));
 
-                ApiServiceCallbackAnno callbackAnno = param.getAnnotation(ApiServiceCallbackAnno.class);
-                if (callbackAnno != null) {
-                    // callback，组装成 ApiCallback 对象
-                    TypeName callbackType = ElementUtil.getCallbackClassName(param.asType());
-                    mMessager.printMessage(Diagnostic.Kind.WARNING, "callbackType = " + callbackType + "; param.asType() = " + param.asType());
-                    methodBuilder.addStatement("$T callback = new $T()", callbackType, callbackType);
-                    methodBuilder.addStatement(String.format("callback.%s = %s", TARGET_FILED_NAME, param.getSimpleName()));
-
-                    sb.append("callback");
-                } else {
-                    // 非 callback，通过 getApiServiceTarget 获取真实对象
-                    statementArgs.add(ClassName.get(param.asType()));
-                    sb.append("($T)")
-                            .append(param.getSimpleName().toString())
-                            .append(".")
-                            .append(ApiBaseGenerator.GET_TARGET_METHOD_NAME)
-                            .append("()");
-                }
-
+                sb.append("($T)")
+                        .append(param.getSimpleName().toString())
+                        .append(".")
+                        .append(ApiBaseGenerator.GET_TARGET_METHOD_NAME)
+                        .append("()");
             } else {
                 methodBuilder.addParameter(ClassName.get(param.asType()), param.getSimpleName().toString());
                 sb.append(param.getSimpleName().toString());
@@ -170,10 +154,16 @@ public class StubClassGenerator extends BaseApiClassGenerator {
         }
         sb.append(")");
 
+        if (mMakeTargetField) {
+            methodBuilder.beginControlFlow(String.format("if (%s != null)", TARGET_FILED_NAME));
+        }
         if (statementArgs.isEmpty()) {
             methodBuilder.addStatement(sb.toString());
         } else {
             methodBuilder.addStatement(sb.toString(), statementArgs.toArray());
+        }
+        if (mMakeTargetField) {
+            methodBuilder.endControlFlow();
         }
 
         // 如果是自定义类型，需要重新添加return，将 api 类返回

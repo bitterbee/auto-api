@@ -18,7 +18,7 @@ import static javax.lang.model.element.Modifier.PUBLIC;
  * Created by zyl06 on 2018/10/27.
  */
 
-public class StubFactoryGenerator  extends BaseApiClassGenerator {
+public class StubFactoryGenerator extends BaseApiClassGenerator {
 
     private ClassName mReturnType;
     private ClassName mStubType;

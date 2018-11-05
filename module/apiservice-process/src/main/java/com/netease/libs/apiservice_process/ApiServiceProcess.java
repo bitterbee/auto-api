@@ -6,6 +6,7 @@ import com.netease.libs.apiservice_process.generator.ApiBaseGenerator;
 import com.netease.libs.apiservice_process.generator.ApiFactoryGenerator;
 import com.netease.libs.apiservice_process.generator.ApiGenerator;
 import com.netease.libs.apiservice_process.generator.ApiRegisterGenerator;
+import com.netease.libs.apiservice_process.generator.CallbackClassGenerator;
 import com.netease.libs.apiservice_process.generator.StubClassGenerator;
 import com.netease.libs.apiservice_process.generator.StubFactoryGenerator;
 import com.squareup.javapoet.ClassName;
@@ -82,8 +83,9 @@ public class ApiServiceProcess extends AbstractProcessor {
 
         mMessager.printMessage(Diagnostic.Kind.NOTE, "api provider apt run begin");
 
-        ElementUtil.API_GENERATORS.clear();
-        ElementUtil.STUB_GENERATORS.clear();
+        ElementUtil.ORIGIN_TO_API.clear();
+        ElementUtil.ORIGIAN_TO_STUB.clear();
+        ElementUtil.ORIGIN_TO_CALLBACK.clear();
 
         List<BaseClassGenerator> classGenerators = new ArrayList<>();
         List<StubFactoryGenerator> stubFactoryGenerators = new ArrayList<>();
@@ -109,20 +111,24 @@ public class ApiServiceProcess extends AbstractProcessor {
 
             ApiGenerator apiGen = new ApiGenerator(providerClass, mMessager, mPkgName);
             classGenerators.add(apiGen);
-            ElementUtil.API_GENERATORS.put(ClassName.get(annoClass), apiGen);
+            ElementUtil.ORIGIN_TO_API.put(ClassName.get(annoClass), ElementUtil.getClassName(apiGen));
 
-            if (!ElementUtil.isInterface(annoClass)) {
-                StubClassGenerator stubGen = new StubClassGenerator(providerClass, mMessager, apiGen, mPkgName);
-                classGenerators.add(stubGen);
-                ElementUtil.STUB_GENERATORS.put(ClassName.get(annoClass), stubGen);
-
-                ApiFactoryGenerator apiFactoryGen = new ApiFactoryGenerator(providerClass, mMessager, mPkgName, apiGen);
-                classGenerators.add(apiFactoryGen);
-
-                StubFactoryGenerator stubFactoryGen = new StubFactoryGenerator(providerClass, mMessager, mPkgName, apiGen, stubGen, apiFactoryGen);
-                classGenerators.add(stubFactoryGen);
-                stubFactoryGenerators.add(stubFactoryGen);
+            if (ElementUtil.isInterface(annoClass)) {
+                CallbackClassGenerator callbackGen = new CallbackClassGenerator(providerClass, mMessager, apiGen, mPkgName);
+                classGenerators.add(callbackGen);
+                ElementUtil.ORIGIN_TO_CALLBACK.put(ClassName.get(annoClass), ElementUtil.getClassName(callbackGen));
             }
+
+            StubClassGenerator stubGen = new StubClassGenerator(providerClass, mMessager, apiGen, mPkgName);
+            classGenerators.add(stubGen);
+            ElementUtil.ORIGIAN_TO_STUB.put(ClassName.get(annoClass), ElementUtil.getClassName(stubGen));
+
+            ApiFactoryGenerator apiFactoryGen = new ApiFactoryGenerator(providerClass, mMessager, mPkgName, apiGen);
+            classGenerators.add(apiFactoryGen);
+
+            StubFactoryGenerator stubFactoryGen = new StubFactoryGenerator(providerClass, mMessager, mPkgName, apiGen, stubGen, apiFactoryGen);
+            classGenerators.add(stubFactoryGen);
+            stubFactoryGenerators.add(stubFactoryGen);
         }
 
         ApiRegisterGenerator registerGenerator = new ApiRegisterGenerator(mMessager, mPkgName, stubFactoryGenerators);
