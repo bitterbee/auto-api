@@ -11,6 +11,8 @@ public interface AppCalculator extends ApiBase {
 
   int add(int a, int b);
 
+  float add(float a, float b);
+
   Timer getTimer();
 
   double nonStaticAdd(double a, double b);

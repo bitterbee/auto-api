@@ -91,6 +91,8 @@ public class StubClassGenerator extends BaseApiClassGenerator {
     @Override
     protected void addMethod(TypeSpec.Builder builder, ExecutableElement e, String methodName) {
         TypeName returnApiType = ElementUtil.getApiServiceClassName(e.getReturnType());
+        boolean hasReturn = e.getReturnType() != null && TypeName.get(e.getReturnType()) != TypeName.VOID;
+        boolean isStatic = ElementUtil.isStatic(e);
 
         MethodSpec.Builder methodBuilder = MethodSpec
                 .methodBuilder(methodName)
@@ -103,7 +105,7 @@ public class StubClassGenerator extends BaseApiClassGenerator {
         }
 
         StringBuilder sb = new StringBuilder(32);
-        if (e.getReturnType() != null && TypeName.get(e.getReturnType()) != TypeName.VOID) {
+        if (hasReturn) {
             if (returnApiType != null) {
                 TypeName returnStubType = ElementUtil.getStubServiceClassName(e.getReturnType());
                 methodBuilder.addStatement("$T stub = new $T()", returnStubType, returnStubType);
@@ -112,7 +114,7 @@ public class StubClassGenerator extends BaseApiClassGenerator {
                 sb.append("return ");
             }
         }
-        if (ElementUtil.isStatic(e)) { // 静态方法
+        if (isStatic) { // 静态方法
             sb.append("$T.")
                     .append(e.getSimpleName().toString())
                     .append("(");

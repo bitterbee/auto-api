@@ -4,6 +4,7 @@ import com.netease.libs.apiservice.anno.ApiServiceClassAnno;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.TypeName;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -79,5 +80,25 @@ public class ElementUtil {
 
     public static TypeName getCallbackClassName(TypeMirror type) {
         return ORIGIN_TO_CALLBACK.get(ClassName.get(type));
+    }
+
+    public static String defaultValue(TypeName tn) {
+        if (!tn.isPrimitive()) {
+            return "null";
+        }
+
+        if (tn.equals(TypeName.BOOLEAN)) {
+            return "false";
+        } else if (tn.equals(TypeName.BYTE) ||
+                tn.equals(TypeName.SHORT) ||
+                tn.equals(TypeName.INT) ||
+                tn.equals(TypeName.LONG) ||
+                tn.equals(TypeName.CHAR)) {
+            return "0";
+        } else if (tn.equals(TypeName.FLOAT) ||
+                tn.equals(TypeName.DOUBLE)) {
+            return "0.f";
+        }
+        return null;
     }
 }

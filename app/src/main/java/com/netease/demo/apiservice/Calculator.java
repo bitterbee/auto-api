@@ -33,8 +33,12 @@ public class Calculator {
         return a + b;
     }
 
+    public static float add(float a, float b) {
+        return a + b;
+    }
+
     @ApiServiceMethodAnno(provide = false)
-    public static float innerAdd(float a, float b) {
+    public static double innerAdd(double a, double b) {
         return a + b;
     }
 
