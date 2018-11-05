@@ -10,5 +10,7 @@ import java.lang.String;
 public interface HttpListenerApi extends ApiBase {
   void onHttpSuccess(String httpName, Object result);
 
+  void onCancel();
+
   void onHttpError(String httpName, int errorCode, String errorMsg);
 }

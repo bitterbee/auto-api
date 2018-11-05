@@ -10,15 +10,20 @@ import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.processing.Messager;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.TypeElement;
+import javax.lang.model.element.VariableElement;
+import javax.lang.model.type.DeclaredType;
 import javax.lang.model.type.TypeMirror;
+import javax.tools.Diagnostic;
 
 /**
  * Created by zyl06 on 2018/10/18.
@@ -29,12 +34,23 @@ public abstract class BaseApiClassGenerator extends BaseClassGenerator {
     protected ApiServiceClass mProviderClass;
     protected TypeElement mApiTarget;
     protected String mPkgName;
+    private Set<String> mMethodSignatures = new HashSet<>();
 
     public BaseApiClassGenerator(ApiServiceClass providerClass, Messager messager, String packageName) {
         super(messager);
         mProviderClass = providerClass;
         mApiTarget = providerClass.clazz;
         mPkgName = packageName;
+    }
+
+    private boolean addSignature(ExecutableElement e) {
+        StringBuilder sb = new StringBuilder(64);
+        sb.append(e.getSimpleName()).append("_");
+        for (VariableElement ve : e.getParameters()) {
+            sb.append(ClassName.get(ve.asType()).toString())
+                    .append("_");
+        }
+        return mMethodSignatures.add(sb.toString());
     }
 
     protected void generate(TypeSpec.Builder builder) {
@@ -79,10 +95,28 @@ public abstract class BaseApiClassGenerator extends BaseClassGenerator {
                     }
                 }
             }
+
+            if (ElementUtil.isInterface(mApiTarget)) {
+                for (TypeMirror funcInter : mApiTarget.getInterfaces()) {
+                    mMessager.printMessage(Diagnostic.Kind.WARNING, "funcInter = " + funcInter);
+                    Element funcTypeElem = ((DeclaredType) funcInter).asElement();
+
+                    for (Element e : funcTypeElem.getEnclosedElements()) {
+                        if (e instanceof ExecutableElement && ElementUtil.isPublic(e)) {
+                            runExeElement(builder, (ExecutableElement) e);
+                        }
+                    }
+                }
+            }
+
         }
     }
 
     private void runExeElement(TypeSpec.Builder builder, ExecutableElement e) {
+        if (!addSignature(e)) {
+            return;
+        }
+
         ApiServiceMethodAnno anno = e.getAnnotation(ApiServiceMethodAnno.class);
         if (anno != null && !anno.provide()) {
             return;
