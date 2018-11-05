@@ -8,8 +8,6 @@ import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.annotation.processing.Filer;

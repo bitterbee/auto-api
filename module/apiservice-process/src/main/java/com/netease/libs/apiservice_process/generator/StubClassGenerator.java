@@ -46,9 +46,7 @@ public class StubClassGenerator extends BaseApiClassGenerator {
 
     @Override
     public String className() {
-        return mProviderClass.name != null && !mProviderClass.name.equals("") ?
-                mProviderClass.name + "Stub" :
-                mApiTarget.getSimpleName() + "Stub";
+        return className("Stub", "Stub");
     }
 
     @Override

@@ -10,8 +10,12 @@ import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import javax.annotation.processing.Messager;
 import javax.lang.model.element.Element;
+import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.type.TypeMirror;
@@ -58,11 +62,33 @@ public abstract class BaseApiClassGenerator extends BaseClassGenerator {
                 runExeElement(builder, (ExecutableElement) e);
             }
         }
+
+        // 处理基类
+        if (mProviderClass.includeSuperApi) {
+            TypeMirror tm = mApiTarget.getSuperclass();
+            while (tm instanceof TypeElement) {
+                TypeElement superElem = (TypeElement) tm;
+                ClassName cn = ClassName.get(superElem);
+                if (cn.isPrimitive() || cn.equals(ClassName.OBJECT)) {
+                    break;
+                }
+
+                for (Element e : mApiTarget.getEnclosedElements()) {
+                    if (ElementUtil.isPublic(e) && e instanceof ExecutableElement) {
+                        runExeElement(builder, (ExecutableElement) e);
+                    }
+                }
+            }
+        }
     }
 
     private void runExeElement(TypeSpec.Builder builder, ExecutableElement e) {
         ApiServiceMethodAnno anno = e.getAnnotation(ApiServiceMethodAnno.class);
         if (anno != null && !anno.provide()) {
+            return;
+        }
+
+        if (e.getKind() == ElementKind.CONSTRUCTOR) {
             return;
         }
 
@@ -90,6 +116,32 @@ public abstract class BaseApiClassGenerator extends BaseClassGenerator {
 
     protected void addClassBuildMethod(TypeSpec.Builder builder, ExecutableElement e, String methodName) {
 
+    }
+
+    protected String className(String providerNameSuffix, String anonymousSuffix) {
+        if (mProviderClass.name != null && !mProviderClass.name.equals("")) {
+            return providerNameSuffix != null ?
+                    mProviderClass.name + providerNameSuffix :
+                    mProviderClass.name;
+        }
+
+        List<String> enclosingNames = new LinkedList<>();
+        Element enclosingElem = mApiTarget.getEnclosingElement();
+        while (enclosingElem instanceof TypeElement) {
+            enclosingNames.add(0, enclosingElem.getSimpleName().toString());
+            enclosingElem = enclosingElem.getEnclosingElement();
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (String enclosingName : enclosingNames) {
+            sb.append(enclosingName).append("_");
+        }
+        sb.append(mApiTarget.getSimpleName());
+        if (anonymousSuffix != null) {
+            sb.append(anonymousSuffix);
+        }
+
+        return sb.toString();
     }
 
     /**

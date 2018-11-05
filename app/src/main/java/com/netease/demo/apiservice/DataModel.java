@@ -18,6 +18,11 @@ public class DataModel {
         this.b = b;
     }
 
+    public DataModel() {
+        this.a = 0;
+        this.b = 0;
+    }
+
     public int getA() {
         return a;
     }

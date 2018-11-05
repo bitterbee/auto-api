@@ -104,6 +104,7 @@ public class ApiServiceProcess extends AbstractProcessor {
             providerClass.name = anno.name();
             providerClass.allPublicStaticApi = anno.allPublicStaticApi();
             providerClass.allPublicNormalApi = anno.allPublicNormalApi();
+            providerClass.includeSuperApi = anno.includeSuperApi();
 
             ApiGenerator apiGen = new ApiGenerator(providerClass, mMessager, mPkgName);
             classGenerators.add(apiGen);

@@ -43,9 +43,7 @@ public class ApiFactoryGenerator extends BaseApiClassGenerator {
 
     @Override
     public String className() {
-        return mProviderClass.name != null && !mProviderClass.name.equals("") ?
-                mProviderClass.name + "ApiFactory" :
-                mApiTarget.getSimpleName() + "ApiFactory";
+        return className("ApiFactory", "ApiFactory");
     }
 
     @Override

@@ -44,9 +44,7 @@ public class StubFactoryGenerator  extends BaseApiClassGenerator {
 
     @Override
     public String className() {
-        return mProviderClass.name != null && !mProviderClass.name.equals("") ?
-                mProviderClass.name + "StubFactory" :
-                mApiTarget.getSimpleName() + "StubFactory";
+        return className("StubFactory", "StubFactory");
     }
 
     @Override

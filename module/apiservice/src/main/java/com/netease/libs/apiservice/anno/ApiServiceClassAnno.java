@@ -28,4 +28,10 @@ public @interface ApiServiceClassAnno {
      * @return
      */
     boolean allPublicNormalApi() default false;
+
+    /**
+     * 是否提供基类接口，默认不提供
+     * @return
+     */
+    boolean includeSuperApi() default false;
 }

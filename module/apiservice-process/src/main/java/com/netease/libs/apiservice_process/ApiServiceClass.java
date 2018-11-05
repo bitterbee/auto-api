@@ -16,4 +16,7 @@ public class ApiServiceClass {
 
     // 是否提供全部的 public normal 方法
     public boolean allPublicNormalApi;
+
+    // 是否判断基类方法
+    public boolean includeSuperApi;
 }
