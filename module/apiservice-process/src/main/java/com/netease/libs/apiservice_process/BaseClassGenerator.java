@@ -19,7 +19,6 @@ import javax.tools.Diagnostic;
 public abstract class BaseClassGenerator {
 
     protected Messager mMessager;
-    static Elements sElementUtil;
 
     public BaseClassGenerator(Messager messager) {
         this.mMessager = messager;

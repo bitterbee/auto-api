@@ -31,4 +31,9 @@ public class FunctionUtil {
     public static void noReturn() {
         Log.i("Calculator", "noReturn");
     }
+
+    @ApiServiceClassAnno()
+    public static class InnerModel {
+        int a;
+    }
 }

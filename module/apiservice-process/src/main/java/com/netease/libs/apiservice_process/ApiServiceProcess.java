@@ -33,6 +33,7 @@ import static com.squareup.javapoet.JavaFile.builder;
 import static java.util.Collections.singleton;
 import static javax.lang.model.SourceVersion.latestSupported;
 import static javax.tools.Diagnostic.Kind.ERROR;
+import static javax.tools.Diagnostic.Kind.WARNING;
 
 /**
  * Created by zyl06 on 2018/10/16.
@@ -58,7 +59,7 @@ public class ApiServiceProcess extends AbstractProcessor {
 
         mMessager = processingEnv.getMessager();
         mFiler = processingEnv.getFiler();
-        BaseClassGenerator.sElementUtil = processingEnv.getElementUtils();
+        ElementUtil.sElementUtil = processingEnv.getElementUtils();
 
         FileUtil.sFromPkgName = mPkgName;
         FileUtil.sToProjectPath = mApiProjectPath;
@@ -110,16 +111,18 @@ public class ApiServiceProcess extends AbstractProcessor {
             classGenerators.add(apiGen);
             ElementUtil.API_GENERATORS.put(ClassName.get(annoClass), apiGen);
 
-            StubClassGenerator stubGen = new StubClassGenerator(providerClass, mMessager, apiGen, mPkgName);
-            classGenerators.add(stubGen);
-            ElementUtil.STUB_GENERATORS.put(ClassName.get(annoClass), stubGen);
+            if (!ElementUtil.isInterface(annoClass)) {
+                StubClassGenerator stubGen = new StubClassGenerator(providerClass, mMessager, apiGen, mPkgName);
+                classGenerators.add(stubGen);
+                ElementUtil.STUB_GENERATORS.put(ClassName.get(annoClass), stubGen);
 
-            ApiFactoryGenerator apiFactoryGen = new ApiFactoryGenerator(providerClass, mMessager, mPkgName, apiGen);
-            classGenerators.add(apiFactoryGen);
+                ApiFactoryGenerator apiFactoryGen = new ApiFactoryGenerator(providerClass, mMessager, mPkgName, apiGen);
+                classGenerators.add(apiFactoryGen);
 
-            StubFactoryGenerator stubFactoryGen = new StubFactoryGenerator(providerClass, mMessager, mPkgName, apiGen, stubGen, apiFactoryGen);
-            classGenerators.add(stubFactoryGen);
-            stubFactoryGenerators.add(stubFactoryGen);
+                StubFactoryGenerator stubFactoryGen = new StubFactoryGenerator(providerClass, mMessager, mPkgName, apiGen, stubGen, apiFactoryGen);
+                classGenerators.add(stubFactoryGen);
+                stubFactoryGenerators.add(stubFactoryGen);
+            }
         }
 
         ApiRegisterGenerator registerGenerator = new ApiRegisterGenerator(mMessager, mPkgName, stubFactoryGenerators);
@@ -148,17 +151,24 @@ public class ApiServiceProcess extends AbstractProcessor {
         return true;
     }
 
-    private boolean isValidElement(Element annotatedClass, Class annoClass) {
+    private boolean isValidElement(Element elem, Class annoClass) {
 
-        if (!ElementUtil.isPublic(annotatedClass)) {
+        if (!ElementUtil.isPublic(elem)) {
             String message = String.format("Classes annotated with %s must be public.", "@" + annoClass.getSimpleName());
-            mMessager.printMessage(ERROR, message, annotatedClass);
+            mMessager.printMessage(ERROR, message, elem);
             return false;
         }
 
-        if (ElementUtil.isAbstract(annotatedClass)) {
+        // public interface 直接 true
+        mMessager.printMessage(WARNING, "isValidElement " + elem.toString());
+        if (elem instanceof TypeElement && ElementUtil.isInterface((TypeElement) elem)) {
+            mMessager.printMessage(WARNING, "isInterface " + elem.toString());
+            return true;
+        }
+
+        if (ElementUtil.isAbstract(elem)) {
             String message = String.format("Classes annotated with %s must not be abstract.", "@" + annoClass.getSimpleName());
-            mMessager.printMessage(ERROR, message, annotatedClass);
+            mMessager.printMessage(ERROR, message, elem);
             return false;
         }
 
