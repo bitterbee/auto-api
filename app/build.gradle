@@ -29,7 +29,9 @@ android {
             annotationProcessorOptions {
                 def path = "${rootProject.projectDir}/module/apiservice-api".toString()
                 arguments = [apiProjectPath: path,
-                             packageName: "com.netease.demo.apiservice"]
+                             packageName: "com.netease.demo.apiservice",
+                             apiBuildEnable: "true",
+                             logOpen: "false"]
             }
         }
     }

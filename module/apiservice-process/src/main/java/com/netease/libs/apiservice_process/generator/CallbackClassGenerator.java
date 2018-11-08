@@ -11,7 +11,6 @@ import com.squareup.javapoet.TypeSpec;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.processing.Messager;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.VariableElement;
@@ -30,10 +29,10 @@ public class CallbackClassGenerator extends BaseApiClassGenerator {
     private boolean mMakeTargetField = false;
     private static final String TARGET_FILED_NAME = "mTarget";
 
-    public CallbackClassGenerator(ApiServiceClass providerClass, Messager messager,
+    public CallbackClassGenerator(ApiServiceClass providerClass,
                                   ApiGenerator apiGen,
                                   String packageName) {
-        super(providerClass, messager, packageName);
+        super(providerClass, packageName);
         this.mApiClassName = ClassName.get(apiGen.packageName(), apiGen.className());
     }
 

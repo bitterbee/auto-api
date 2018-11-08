@@ -10,7 +10,6 @@ import com.squareup.javapoet.TypeSpec;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.processing.Messager;
 import javax.lang.model.element.Modifier;
 
 import static com.squareup.javapoet.TypeSpec.classBuilder;
@@ -25,10 +24,9 @@ public class ApiRegisterGenerator extends BaseClassGenerator {
     private String mPkgName;
     private List<StubFactoryGenerator> mStubFactoryGenerators = new ArrayList<>();
 
-    public ApiRegisterGenerator(Messager messager,
-                                String pkgName,
+    public ApiRegisterGenerator(String pkgName,
                                 List<StubFactoryGenerator> stubFactoryGenerators) {
-        super(messager);
+        super();
         mPkgName = pkgName;
         mStubFactoryGenerators = stubFactoryGenerators;
     }

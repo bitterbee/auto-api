@@ -40,4 +40,9 @@ public class Singleton {
     public void foo2() {
         Log.i("Singleton", "foo2 called");
     }
+
+    @ApiServiceMethodAnno()
+    public void foo3() {
+        Log.i("Singleton", "foo3 called ");
+    }
 }

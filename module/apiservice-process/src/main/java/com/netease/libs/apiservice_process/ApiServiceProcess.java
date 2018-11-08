@@ -21,20 +21,16 @@ import java.util.Set;
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Filer;
 import javax.annotation.processing.FilerException;
-import javax.annotation.processing.Messager;
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.TypeElement;
-import javax.tools.Diagnostic;
 
 import static com.squareup.javapoet.JavaFile.builder;
 import static java.util.Collections.singleton;
 import static javax.lang.model.SourceVersion.latestSupported;
-import static javax.tools.Diagnostic.Kind.ERROR;
-import static javax.tools.Diagnostic.Kind.WARNING;
 
 /**
  * Created by zyl06 on 2018/10/16.
@@ -45,27 +41,36 @@ public class ApiServiceProcess extends AbstractProcessor {
     private String mPkgName;
     private String mApiProjectPath;
 
-    private Messager mMessager;
     private Filer mFiler;
+    private boolean mApiBuildEnable;
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv) {
         super.init(processingEnv);
 
+        Logger.sMessager = processingEnv.getMessager();
+
         Map<String, String> options = processingEnv.getOptions();
         if (options != null && !options.isEmpty()) {
             mApiProjectPath = options.get("apiProjectPath");
             mPkgName = options.get("packageName");
+
+            String strLogOpen = options.get("logOpen");
+            Logger.sLogOpen = Boolean.parseBoolean(strLogOpen);
+
+            String strApiBuildEnable = options.get("apiBuildEnable");
+            mApiBuildEnable = Boolean.parseBoolean(strApiBuildEnable);
+
+            Logger.w("apiBuildEnable " + strApiBuildEnable);
         }
 
-        mMessager = processingEnv.getMessager();
         mFiler = processingEnv.getFiler();
         ElementUtil.sElementUtil = processingEnv.getElementUtils();
 
         FileUtil.sFromPkgName = mPkgName;
         FileUtil.sToProjectPath = mApiProjectPath;
         FileUtil.deleteRecord();
-        mMessager.printMessage(Diagnostic.Kind.NOTE, "delete record.txt");
+        Logger.i("delete record.txt");
     }
 
     @Override
@@ -81,7 +86,7 @@ public class ApiServiceProcess extends AbstractProcessor {
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnv) {
 
-        mMessager.printMessage(Diagnostic.Kind.NOTE, "api provider apt run begin");
+        Logger.i("api provider apt run begin");
 
         ElementUtil.ORIGIN_TO_API.clear();
         ElementUtil.ORIGIAN_TO_STUB.clear();
@@ -91,7 +96,7 @@ public class ApiServiceProcess extends AbstractProcessor {
         List<StubFactoryGenerator> stubFactoryGenerators = new ArrayList<>();
 
         // api 接口的统一父接口
-        classGenerators.add(new ApiBaseGenerator(mMessager));
+        classGenerators.add(new ApiBaseGenerator());
 
         for (Element annoElement : roundEnv.getElementsAnnotatedWith(ApiServiceClassAnno.class)) {
             TypeElement annoClass = (TypeElement) annoElement;
@@ -109,33 +114,40 @@ public class ApiServiceProcess extends AbstractProcessor {
             providerClass.allPublicNormalApi = anno.allPublicNormalApi();
             providerClass.includeSuperApi = anno.includeSuperApi();
 
-            ApiGenerator apiGen = new ApiGenerator(providerClass, mMessager, mPkgName);
+            ApiGenerator apiGen = new ApiGenerator(providerClass, mPkgName);
             classGenerators.add(apiGen);
             ElementUtil.ORIGIN_TO_API.put(ClassName.get(annoClass), ElementUtil.getClassName(apiGen));
 
             if (ElementUtil.isInterface(annoClass)) {
-                CallbackClassGenerator callbackGen = new CallbackClassGenerator(providerClass, mMessager, apiGen, mPkgName);
+                CallbackClassGenerator callbackGen = new CallbackClassGenerator(providerClass, apiGen, mPkgName);
                 classGenerators.add(callbackGen);
                 ElementUtil.ORIGIN_TO_CALLBACK.put(ClassName.get(annoClass), ElementUtil.getClassName(callbackGen));
             }
 
-            StubClassGenerator stubGen = new StubClassGenerator(providerClass, mMessager, apiGen, mPkgName);
+            StubClassGenerator stubGen = new StubClassGenerator(providerClass, apiGen, mPkgName);
             classGenerators.add(stubGen);
             ElementUtil.ORIGIAN_TO_STUB.put(ClassName.get(annoClass), ElementUtil.getClassName(stubGen));
 
-            ApiFactoryGenerator apiFactoryGen = new ApiFactoryGenerator(providerClass, mMessager, mPkgName, apiGen);
+            ApiFactoryGenerator apiFactoryGen = new ApiFactoryGenerator(providerClass, mPkgName, apiGen);
             classGenerators.add(apiFactoryGen);
 
-            StubFactoryGenerator stubFactoryGen = new StubFactoryGenerator(providerClass, mMessager, mPkgName, apiGen, stubGen, apiFactoryGen);
+            StubFactoryGenerator stubFactoryGen = new StubFactoryGenerator(providerClass, mPkgName, apiGen, stubGen, apiFactoryGen);
             classGenerators.add(stubFactoryGen);
             stubFactoryGenerators.add(stubFactoryGen);
         }
 
-        ApiRegisterGenerator registerGenerator = new ApiRegisterGenerator(mMessager, mPkgName, stubFactoryGenerators);
+        ApiRegisterGenerator registerGenerator = new ApiRegisterGenerator(mPkgName, stubFactoryGenerators);
         classGenerators.add(registerGenerator);
 
         for (BaseClassGenerator generator : classGenerators) {
             try {
+                if (generator instanceof ApiGenerator || generator instanceof ApiFactoryGenerator) {
+                    if (!mApiBuildEnable) {
+                        Logger.w(ElementUtil.getClassName(generator).toString() + " ignored");
+                        continue;
+                    }
+                }
+
                 TypeSpec generatedClass = generator.generate();
                 JavaFile javaFile = builder(generator.packageName(), generatedClass).build();
                 generator.writeTo(javaFile, mFiler);
@@ -148,11 +160,11 @@ public class ApiServiceProcess extends AbstractProcessor {
                     sb.append(element.toString()).append("\n");
                 }
 
-                mMessager.printMessage(Diagnostic.Kind.ERROR, sb.toString());
+                Logger.e(sb.toString());
             }
         }
 
-        mMessager.printMessage(Diagnostic.Kind.NOTE, "api provider apt run finish");
+        Logger.i("api provider apt run finish");
 
         return true;
     }
@@ -161,20 +173,20 @@ public class ApiServiceProcess extends AbstractProcessor {
 
         if (!ElementUtil.isPublic(elem)) {
             String message = String.format("Classes annotated with %s must be public.", "@" + annoClass.getSimpleName());
-            mMessager.printMessage(ERROR, message, elem);
+            Logger.e(message, elem);
             return false;
         }
 
         // public interface 直接 true
-        mMessager.printMessage(WARNING, "isValidElement " + elem.toString());
+        Logger.w("isValidElement " + elem.toString());
         if (elem instanceof TypeElement && ElementUtil.isInterface((TypeElement) elem)) {
-            mMessager.printMessage(WARNING, "isInterface " + elem.toString());
+            Logger.w("isInterface " + elem.toString());
             return true;
         }
 
         if (ElementUtil.isAbstract(elem)) {
             String message = String.format("Classes annotated with %s must not be abstract.", "@" + annoClass.getSimpleName());
-            mMessager.printMessage(ERROR, message, elem);
+            Logger.e(message, elem);
             return false;
         }
 

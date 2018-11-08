@@ -1,12 +1,12 @@
 package com.netease.libs.apiservice_process.generator;
 
 import com.netease.libs.apiservice_process.ApiServiceClass;
+import com.netease.libs.apiservice_process.Logger;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
 
-import javax.annotation.processing.Messager;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.VariableElement;
@@ -26,9 +26,9 @@ public class StubFactoryGenerator extends BaseApiClassGenerator {
     String mApiName;
     private int mFactoryMethodCount = 0;
 
-    public StubFactoryGenerator(ApiServiceClass providerClass, Messager messager, String packageName,
+    public StubFactoryGenerator(ApiServiceClass providerClass, String packageName,
                                 ApiGenerator apiGen, StubClassGenerator stubClassGen, ApiFactoryGenerator apiFactoryGen) {
-        super(providerClass, messager, packageName);
+        super(providerClass, packageName);
         this.mReturnType = ClassName.get(apiGen.packageName(), apiGen.className());
         this.mStubType = ClassName.get(stubClassGen.packageName(), stubClassGen.className());
         this.mSuperType = ClassName.get(apiFactoryGen.packageName(), apiFactoryGen.className());
@@ -105,7 +105,7 @@ public class StubFactoryGenerator extends BaseApiClassGenerator {
     protected void addClassBuildMethod(TypeSpec.Builder builder, ExecutableElement e, String methodName) {
         TypeName returnType = ClassName.get(e.getReturnType());
         if (!returnType.equals(ClassName.get(mApiTarget))) {
-            printError(mApiTarget.toString() + "." + methodName + " return type is not " + mApiTarget.toString());
+            Logger.e(mApiTarget.toString() + "." + methodName + " return type is not " + mApiTarget.toString());
             return;
         }
 

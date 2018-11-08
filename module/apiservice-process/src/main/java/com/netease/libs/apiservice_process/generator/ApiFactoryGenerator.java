@@ -2,17 +2,16 @@ package com.netease.libs.apiservice_process.generator;
 
 import com.netease.libs.apiservice_process.ApiServiceClass;
 import com.netease.libs.apiservice_process.FileUtil;
+import com.netease.libs.apiservice_process.Logger;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
 
-import java.io.File;
 import java.io.IOException;
 
 import javax.annotation.processing.Filer;
-import javax.annotation.processing.Messager;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.VariableElement;
@@ -29,8 +28,8 @@ public class ApiFactoryGenerator extends BaseApiClassGenerator {
     private ClassName mReturnType;
     private int mFactoryMethodCount = 0;
 
-    public ApiFactoryGenerator(ApiServiceClass providerClass, Messager messager, String pkgName, ApiGenerator apiGenerator) {
-        super(providerClass, messager, pkgName);
+    public ApiFactoryGenerator(ApiServiceClass providerClass, String pkgName, ApiGenerator apiGenerator) {
+        super(providerClass, pkgName);
         mReturnType = ClassName.get(apiGenerator.packageName(), apiGenerator.className());
     }
 
@@ -63,7 +62,7 @@ public class ApiFactoryGenerator extends BaseApiClassGenerator {
 
     @Override
     public void writeTo(JavaFile javaFile, Filer filer) throws IOException {
-        FileUtil.writeTo(javaFile, mMessager);
+        FileUtil.writeTo(javaFile);
     }
 
     @Override
@@ -93,7 +92,7 @@ public class ApiFactoryGenerator extends BaseApiClassGenerator {
     protected void addClassBuildMethod(TypeSpec.Builder builder, ExecutableElement e, String methodName) {
         TypeName returnType = ClassName.get(e.getReturnType());
         if (!returnType.equals(ClassName.get(mApiTarget))) {
-            printError(mApiTarget.toString() + "." + methodName + " return type is not " + mApiTarget.toString());
+            Logger.e(mApiTarget.toString() + "." + methodName + " return type is not " + mApiTarget.toString());
             return;
         }
 

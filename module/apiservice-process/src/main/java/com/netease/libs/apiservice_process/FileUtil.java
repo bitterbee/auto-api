@@ -10,9 +10,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 
-import javax.annotation.processing.Messager;
-import javax.tools.Diagnostic;
-
 /**
  * Created by zyl06 on 2018/10/19.
  */
@@ -22,15 +19,13 @@ public class FileUtil {
     public static String sToProjectPath;
     public static String sFromPkgName;
 
-    public static void writeTo(JavaFile javaFile,
-                               Messager messager) throws IOException {
+    public static void writeTo(JavaFile javaFile) throws IOException {
         String to = sToProjectPath + "/src/main/java/";
         File toDir = new File(to);
         if (!toDir.exists()) {
             boolean success = toDir.mkdirs();
             if (!success) {
-                messager.printMessage(Diagnostic.Kind.ERROR,
-                        to + " folder not exists!!!");
+                Logger.e(to + " folder not exists!!!");
                 return;
             }
         }
@@ -50,7 +45,7 @@ public class FileUtil {
         }
 
         String filePath = to + relativePath;
-        messager.printMessage(Diagnostic.Kind.NOTE, "java filePath = " + filePath);
+        Logger.i("java filePath = " + filePath);
 
         FileWriter fw = null;
         try {
@@ -64,7 +59,7 @@ public class FileUtil {
             fw.append(relativePath).append(";").append("\n");
             fw.flush();
         } catch (IOException e) {
-            messager.printMessage(Diagnostic.Kind.ERROR, e.toString());
+            Logger.e(e.toString());
         } finally {
             safeClose(fw);
         }

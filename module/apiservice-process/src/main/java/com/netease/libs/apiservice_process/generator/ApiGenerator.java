@@ -10,7 +10,6 @@ import com.squareup.javapoet.TypeSpec;
 import java.io.IOException;
 
 import javax.annotation.processing.Filer;
-import javax.annotation.processing.Messager;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.VariableElement;
@@ -25,8 +24,8 @@ import static javax.lang.model.element.Modifier.PUBLIC;
 
 public class ApiGenerator extends BaseApiClassGenerator {
 
-    public ApiGenerator(ApiServiceClass providerClass, Messager messager, String pkgName) {
-        super(providerClass, messager, pkgName);
+    public ApiGenerator(ApiServiceClass providerClass, String pkgName) {
+        super(providerClass, pkgName);
     }
 
     @Override
@@ -55,7 +54,7 @@ public class ApiGenerator extends BaseApiClassGenerator {
 
     @Override
     public void writeTo(JavaFile javaFile, Filer filer) throws IOException {
-        FileUtil.writeTo(javaFile, mMessager);
+        FileUtil.writeTo(javaFile);
     }
 
     @Override

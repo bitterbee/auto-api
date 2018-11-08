@@ -27,8 +27,8 @@ public class ApiBaseGenerator extends BaseClassGenerator {
     private static final String CLASS_NAME = "ApiBase";
     public static final String GET_TARGET_METHOD_NAME = "getApiServiceTarget";
 
-    public ApiBaseGenerator(Messager messager) {
-        super(messager);
+    public ApiBaseGenerator() {
+        super();
     }
 
     @Override
@@ -58,7 +58,7 @@ public class ApiBaseGenerator extends BaseClassGenerator {
 
     @Override
     public void writeTo(JavaFile javaFile, Filer filer) throws IOException {
-        FileUtil.writeTo(javaFile, mMessager);
+        FileUtil.writeTo(javaFile);
     }
 
     public static ClassName getClassName() {

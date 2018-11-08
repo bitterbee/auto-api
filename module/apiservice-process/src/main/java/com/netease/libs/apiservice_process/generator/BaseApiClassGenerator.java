@@ -6,6 +6,7 @@ import com.netease.libs.apiservice.anno.ApiServiceMethodAnno;
 import com.netease.libs.apiservice_process.ApiServiceClass;
 import com.netease.libs.apiservice_process.BaseClassGenerator;
 import com.netease.libs.apiservice_process.ElementUtil;
+import com.netease.libs.apiservice_process.Logger;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
@@ -15,7 +16,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-import javax.annotation.processing.Messager;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.ExecutableElement;
@@ -23,7 +23,6 @@ import javax.lang.model.element.TypeElement;
 import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.DeclaredType;
 import javax.lang.model.type.TypeMirror;
-import javax.tools.Diagnostic;
 
 /**
  * Created by zyl06 on 2018/10/18.
@@ -36,8 +35,8 @@ public abstract class BaseApiClassGenerator extends BaseClassGenerator {
     protected String mPkgName;
     private Set<String> mMethodSignatures = new HashSet<>();
 
-    public BaseApiClassGenerator(ApiServiceClass providerClass, Messager messager, String packageName) {
-        super(messager);
+    public BaseApiClassGenerator(ApiServiceClass providerClass, String packageName) {
+        super();
         mProviderClass = providerClass;
         mApiTarget = providerClass.clazz;
         mPkgName = packageName;
@@ -98,7 +97,7 @@ public abstract class BaseApiClassGenerator extends BaseClassGenerator {
 
             if (ElementUtil.isInterface(mApiTarget)) {
                 for (TypeMirror funcInter : mApiTarget.getInterfaces()) {
-                    mMessager.printMessage(Diagnostic.Kind.WARNING, "funcInter = " + funcInter);
+                    Logger.w("funcInter = " + funcInter);
                     Element funcTypeElem = ((DeclaredType) funcInter).asElement();
 
                     for (Element e : funcTypeElem.getEnclosedElements()) {

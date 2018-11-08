@@ -3,6 +3,7 @@ package com.netease.libs.apiservice_process.generator;
 import com.netease.libs.apiservice.anno.ApiServiceCallbackAnno;
 import com.netease.libs.apiservice_process.ApiServiceClass;
 import com.netease.libs.apiservice_process.ElementUtil;
+import com.netease.libs.apiservice_process.Logger;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.FieldSpec;
 import com.squareup.javapoet.MethodSpec;
@@ -12,12 +13,10 @@ import com.squareup.javapoet.TypeSpec;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.processing.Messager;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.TypeMirror;
-import javax.tools.Diagnostic;
 
 import static com.squareup.javapoet.TypeSpec.classBuilder;
 import static javax.lang.model.element.Modifier.PUBLIC;
@@ -32,10 +31,10 @@ public class StubClassGenerator extends BaseApiClassGenerator {
     private boolean mMakeTargetField = false;
     private static final String TARGET_FILED_NAME = "mTarget";
 
-    public StubClassGenerator(ApiServiceClass providerClass, Messager messager,
+    public StubClassGenerator(ApiServiceClass providerClass,
                               ApiGenerator apiGen,
                               String packageName) {
-        super(providerClass, messager, packageName);
+        super(providerClass, packageName);
         this.mApiClassName = ClassName.get(apiGen.packageName(), apiGen.className());
     }
 
@@ -146,7 +145,7 @@ public class StubClassGenerator extends BaseApiClassGenerator {
                 if (callbackAnno != null) {
                     // callback，组装成 ApiCallback 对象
                     TypeName callbackType = ElementUtil.getCallbackClassName(param.asType());
-                    mMessager.printMessage(Diagnostic.Kind.WARNING, "callbackType = " + callbackType + "; param.asType() = " + param.asType());
+                    Logger.w("callbackType = " + callbackType + "; param.asType() = " + param.asType());
                     methodBuilder.addStatement("$T callback = new $T()", callbackType, callbackType);
                     methodBuilder.addStatement(String.format("callback.%s = %s", TARGET_FILED_NAME, param.getSimpleName()));
 

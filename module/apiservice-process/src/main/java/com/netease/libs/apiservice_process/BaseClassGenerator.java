@@ -18,10 +18,7 @@ import javax.tools.Diagnostic;
 
 public abstract class BaseClassGenerator {
 
-    protected Messager mMessager;
-
-    public BaseClassGenerator(Messager messager) {
-        this.mMessager = messager;
+    public BaseClassGenerator() {
     }
 
     public abstract TypeSpec generate();
@@ -33,10 +30,6 @@ public abstract class BaseClassGenerator {
     public abstract String packageName();
 
     public abstract String className();
-
-    public void printError(String msg) {
-        mMessager.printMessage(Diagnostic.Kind.ERROR, msg);
-    }
 
     protected String getClassName(Element element) {
         ClassName className = ClassName.bestGuess(element.toString());
