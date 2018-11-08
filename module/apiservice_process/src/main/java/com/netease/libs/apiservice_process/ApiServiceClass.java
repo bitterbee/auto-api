@@ -9,8 +9,10 @@ import javax.lang.model.element.TypeElement;
 public class ApiServiceClass {
     // NEApiProviderAnno 注解对应的类型
     public TypeElement clazz;
+
     // api provider 名称
     public String name;
+
     // 是否提供全部的 public static 方法
     public boolean allPublicStaticApi;
 

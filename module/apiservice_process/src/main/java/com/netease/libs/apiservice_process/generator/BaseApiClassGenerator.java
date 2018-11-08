@@ -10,6 +10,8 @@ import com.netease.libs.apiservice_process.Logger;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
+import com.sun.tools.javac.code.Symbol;
+import com.sun.tools.javac.code.Type;
 
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -80,18 +82,41 @@ public abstract class BaseApiClassGenerator extends BaseClassGenerator {
 
         // 处理基类
         if (mProviderClass.includeSuperApi) {
+            ClassName targetCn = ClassName.get(mApiTarget);
             TypeMirror tm = mApiTarget.getSuperclass();
-            while (tm instanceof TypeElement) {
-                TypeElement superElem = (TypeElement) tm;
-                ClassName cn = ClassName.get(superElem);
+
+            Logger.w(targetCn + " superclass TypeMirror Class = " + tm.getClass());
+
+            while (tm instanceof Type) {
+                Symbol.TypeSymbol superElem = ((Type) tm).asElement();
+                if (superElem == null) {
+                    Logger.w(targetCn + " is interface.");
+                    break;
+                }
+
+                TypeName cn = ClassName.get(superElem.asType());
+
+                Logger.w(targetCn + " superclass = " + cn + "; super elem: " + superElem.getClass());
+
                 if (cn.isPrimitive() || cn.equals(ClassName.OBJECT)) {
                     break;
                 }
 
-                for (Element e : mApiTarget.getEnclosedElements()) {
+                for (Element e : superElem.getEnclosedElements()) {
                     if (ElementUtil.isPublic(e) && e instanceof ExecutableElement) {
+                        Logger.w(targetCn + " ExecutableElement=" + e);
+
                         runExeElement(builder, (ExecutableElement) e);
                     }
+                }
+
+                boolean finish = true;
+                if (superElem instanceof Symbol.ClassSymbol) {
+                    tm = ((Symbol.ClassSymbol) superElem).getSuperclass();
+                    finish = (tm == null || ClassName.get(tm).equals(ClassName.OBJECT));
+                }
+                if (finish) {
+                    break;
                 }
             }
 

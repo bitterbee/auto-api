@@ -30,8 +30,8 @@ android {
                 def path = "${rootProject.projectDir}/module/apiservice-api".toString()
                 arguments = [apiProjectPath: path,
                              packageName: "com.netease.demo.apiservice",
-                             apiBuildEnable: "false",
-                             logOpen: "false"]
+                             apiBuildEnable: "true",
+                             logOpen: "true"]
             }
         }
     }

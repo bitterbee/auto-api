@@ -1,4 +1,6 @@
 com/netease/libs/api_service/ApiBase.java;
+com/netease/demo/apiservice/api_service/SharedWzpCommonRequestTaskApi.java;
+com/netease/demo/apiservice/api_service/factory/SharedWzpCommonRequestTaskApiFactory.java;
 com/netease/demo/apiservice/api_service/AppSingleton.java;
 com/netease/demo/apiservice/api_service/factory/AppSingletonApiFactory.java;
 com/netease/demo/apiservice/api_service/AppFunction.java;
