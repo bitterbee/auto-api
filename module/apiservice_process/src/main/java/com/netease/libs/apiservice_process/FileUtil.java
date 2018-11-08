@@ -18,18 +18,22 @@ public class FileUtil {
 
     public static String sToProjectPath;
     public static String sFromPkgName;
+    public static boolean sApiBuildEnable = true;
 
     public static void writeTo(JavaFile javaFile) throws IOException {
+
         String to = sToProjectPath + "/src/main/java/";
-        File toDir = new File(to);
-        if (!toDir.exists()) {
-            boolean success = toDir.mkdirs();
-            if (!success) {
-                Logger.e(to + " folder not exists!!!");
-                return;
+        if (sApiBuildEnable) {
+            File toDir = new File(to);
+            if (!toDir.exists()) {
+                boolean success = toDir.mkdirs();
+                if (!success) {
+                    Logger.e(to + " folder not exists!!!");
+                    return;
+                }
             }
+            javaFile.writeTo(toDir);
         }
-        javaFile.writeTo(toDir);
 
         // 生成 record 文件
         String pkgName = javaFile.packageName;

@@ -10,6 +10,4 @@ public interface AppSingleton extends ApiBase {
   String foo1(String str1, String str2);
 
   void foo2();
-
-  void foo3();
 }

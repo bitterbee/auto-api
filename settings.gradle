@@ -3,8 +3,8 @@ include ':app', ':demomodule1'
 include ':apiservice'
 project(':apiservice').projectDir = new File('module/apiservice')
 
-include ':apiservice-process'
-project(':apiservice-process').projectDir = new File('module/apiservice-process')
+include ':apiservice_process'
+project(':apiservice_process').projectDir = new File('module/apiservice_process')
 
 include ':apiservice-plugin'
 project(':apiservice-plugin').projectDir = new File('module/apiservice-plugin')

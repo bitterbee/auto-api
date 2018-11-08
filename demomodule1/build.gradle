@@ -37,5 +37,5 @@ dependencies {
 
     compile project(':apiservice')
     compile project(':apiservice-api')
-    annotationProcessor project(':apiservice-process')
+    annotationProcessor project(':apiservice_process')
 }

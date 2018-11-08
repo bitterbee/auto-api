@@ -28,6 +28,14 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="apiservice.apiservice-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="apiservice.apiservice-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="apiservice.apiservice-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="apiservice.apiservice-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="apiservice.apiservice-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="apiservice.apiservice-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="apiservice.apiservice-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="apiservice.apiservice-1.0.0" level="project" />
   </component>
   <component name="sonarModuleSettings">
     <option name="localAnalysisScripName" value="&lt;PROJECT&gt;" />

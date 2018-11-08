@@ -42,7 +42,6 @@ public class ApiServiceProcess extends AbstractProcessor {
     private String mApiProjectPath;
 
     private Filer mFiler;
-    private boolean mApiBuildEnable;
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv) {
@@ -59,7 +58,9 @@ public class ApiServiceProcess extends AbstractProcessor {
             Logger.sLogOpen = Boolean.parseBoolean(strLogOpen);
 
             String strApiBuildEnable = options.get("apiBuildEnable");
-            mApiBuildEnable = Boolean.parseBoolean(strApiBuildEnable);
+            if (strApiBuildEnable != null) {
+                FileUtil.sApiBuildEnable = Boolean.parseBoolean(strApiBuildEnable);
+            }
 
             Logger.w("apiBuildEnable " + strApiBuildEnable);
         }
@@ -141,13 +142,6 @@ public class ApiServiceProcess extends AbstractProcessor {
 
         for (BaseClassGenerator generator : classGenerators) {
             try {
-                if (generator instanceof ApiGenerator || generator instanceof ApiFactoryGenerator) {
-                    if (!mApiBuildEnable) {
-                        Logger.w(ElementUtil.getClassName(generator).toString() + " ignored");
-                        continue;
-                    }
-                }
-
                 TypeSpec generatedClass = generator.generate();
                 JavaFile javaFile = builder(generator.packageName(), generatedClass).build();
                 generator.writeTo(javaFile, mFiler);
