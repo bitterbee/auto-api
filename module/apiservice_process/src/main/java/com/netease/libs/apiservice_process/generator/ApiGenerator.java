@@ -45,7 +45,7 @@ public class ApiGenerator extends BaseApiClassGenerator {
         TypeSpec.Builder builder = interfaceBuilder(className())
                 .addSuperinterface(ApiBaseGenerator.getClassName())
                 .addModifiers(PUBLIC);
-        builder.addJavadoc(mApiTarget.getQualifiedName().toString() + " 的 api 接口\n");
+        builder.addJavadoc(mApiTarget.getQualifiedName().toString() + "'s api Interface\n");
 
         generate(builder);
 

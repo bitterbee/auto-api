@@ -54,7 +54,7 @@ public class CallbackClassGenerator extends BaseApiClassGenerator {
         TypeSpec.Builder builder = classBuilder(className())
                 .addSuperinterface(TypeName.get(mApiTarget.asType()))
                 .addModifiers(PUBLIC);
-        builder.addJavadoc(mApiTarget.getQualifiedName().toString() + " 的 callback class\n");
+        builder.addJavadoc(mApiTarget.getQualifiedName().toString() + "'s Callback Class\n");
 
         generate(builder);
 
@@ -80,7 +80,7 @@ public class CallbackClassGenerator extends BaseApiClassGenerator {
         if (mMakeTargetField) {
             FieldSpec.Builder targetBuild = FieldSpec.builder(mApiClassName,
                     TARGET_FILED_NAME, Modifier.PUBLIC);
-            FieldSpec target = targetBuild.addJavadoc("Callback 真正的对象\n").build();
+            FieldSpec target = targetBuild.addJavadoc("Callback's original Object\n").build();
             builder.addField(target);
         }
     }

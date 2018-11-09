@@ -7,7 +7,7 @@ import java.lang.String;
 import java.util.Map;
 
 /**
- * com.netease.demo.apiservice.test.SharedWzpCommonRequestTask api 类的工厂接口
+ * com.netease.demo.apiservice.test.SharedWzpCommonRequestTask api Class's factory Interface
  */
 public interface SharedWzpCommonRequestTaskApiFactory {
   SharedWzpCommonRequestTaskApi newInstance(String url, Class modelClass, Map<String, String> queryParams);

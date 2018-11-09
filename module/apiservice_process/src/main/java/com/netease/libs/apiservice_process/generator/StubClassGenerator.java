@@ -56,7 +56,7 @@ public class StubClassGenerator extends BaseApiClassGenerator {
         TypeSpec.Builder builder = classBuilder(className())
                 .addSuperinterface(mApiClassName)
                 .addModifiers(PUBLIC);
-        builder.addJavadoc(mApiTarget.getQualifiedName().toString() + " 的 stub class\n");
+        builder.addJavadoc(mApiTarget.getQualifiedName().toString() + "'s stub Class\n");
 
         generate(builder);
 
@@ -82,7 +82,7 @@ public class StubClassGenerator extends BaseApiClassGenerator {
         if (mMakeTargetField) {
             FieldSpec.Builder targetBuild = FieldSpec.builder(TypeName.get(mApiTarget.asType()),
                     TARGET_FILED_NAME, Modifier.PUBLIC);
-            FieldSpec target = targetBuild.addJavadoc("非静态方法执行真正的对象\n").build();
+            FieldSpec target = targetBuild.addJavadoc("non-static function's owner Object\n").build();
             builder.addField(target);
         }
     }

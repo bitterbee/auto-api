@@ -10,19 +10,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36b8c8e8-cb17-421d-877f-2c41833e6f79" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/test/BaseWzpCommonRequestTask.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/test/SharedWzpCommonRequestTask.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/api_records/com.netease.demo.apiservice.records.txt" afterPath="$PROJECT_DIR$/module/apiservice-api/api_records/com.netease.demo.apiservice.records.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/apiservice-api.iml" afterPath="$PROJECT_DIR$/module/apiservice-api/apiservice-api.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/AppCalculator.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/AppCalculator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/AppDataModel.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/AppDataModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/AppFunction.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/AppFunction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/AppSingleton.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/AppSingleton.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice_process/apiservice_process.iml" afterPath="$PROJECT_DIR$/module/apiservice_process/apiservice_process.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice_process/build.gradle" afterPath="$PROJECT_DIR$/module/apiservice_process/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/ApiServiceClass.java" afterPath="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/ApiServiceClass.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/BaseApiClassGenerator.java" afterPath="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/BaseApiClassGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/FunctionUtil_InnerModelApi.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/FunctionUtil_InnerModelApi.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/HttpListenerApi.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/HttpListenerApi.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/HttpUtilApi.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/HttpUtilApi.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/RequestApi.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/RequestApi.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/SharedWzpCommonRequestTaskApi.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/SharedWzpCommonRequestTaskApi.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/factory/AppCalculatorApiFactory.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/factory/AppCalculatorApiFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/factory/AppDataModelApiFactory.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/factory/AppDataModelApiFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/factory/AppFunctionApiFactory.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/factory/AppFunctionApiFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/factory/AppSingletonApiFactory.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/factory/AppSingletonApiFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/factory/FunctionUtil_InnerModelApiFactory.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/factory/FunctionUtil_InnerModelApiFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/factory/HttpListenerApiFactory.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/factory/HttpListenerApiFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/factory/HttpUtilApiFactory.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/factory/HttpUtilApiFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/factory/RequestApiFactory.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/factory/RequestApiFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/factory/SharedWzpCommonRequestTaskApiFactory.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/factory/SharedWzpCommonRequestTaskApiFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/demomodule1/api_service/ModuleFunction.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/demomodule1/api_service/ModuleFunction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/demomodule1/api_service/factory/ModuleFunctionApiFactory.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/demomodule1/api_service/factory/ModuleFunctionApiFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/libs/api_service/ApiBase.java" afterPath="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/libs/api_service/ApiBase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiBaseGenerator.java" afterPath="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiBaseGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiFactoryGenerator.java" afterPath="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiFactoryGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiGenerator.java" afterPath="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiRegisterGenerator.java" afterPath="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiRegisterGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/CallbackClassGenerator.java" afterPath="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/CallbackClassGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/StubClassGenerator.java" afterPath="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/StubClassGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/StubFactoryGenerator.java" afterPath="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/StubFactoryGenerator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/repo/com/netease/libs/apiservice_process/1.0.0/apiservice_process-1.0.0.jar.md5" afterPath="$PROJECT_DIR$/repo/com/netease/libs/apiservice_process/1.0.0/apiservice_process-1.0.0.jar.md5" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/repo/com/netease/libs/apiservice_process/1.0.0/apiservice_process-1.0.0.jar.sha1" afterPath="$PROJECT_DIR$/repo/com/netease/libs/apiservice_process/1.0.0/apiservice_process-1.0.0.jar.sha1" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/repo/com/netease/libs/apiservice_process/maven-metadata.xml" afterPath="$PROJECT_DIR$/repo/com/netease/libs/apiservice_process/maven-metadata.xml" />
@@ -52,10 +70,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ApiGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="47" column="92" lean-forward="false" selection-start-line="47" selection-start-column="92" selection-end-line="47" selection-end-column="92" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApiRegisterGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiRegisterGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="705">
+              <caret line="51" column="65" lean-forward="false" selection-start-line="51" selection-start-column="65" selection-end-line="51" selection-end-column="65" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="BaseApiClassGenerator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/BaseApiClassGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
+            <state relative-caret-position="-1325">
               <caret line="104" column="26" lean-forward="false" selection-start-line="104" selection-start-column="26" selection-end-line="104" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -64,69 +106,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BaseWzpCommonRequestTask.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/test/BaseWzpCommonRequestTask.java">
+      <file leaf-file-name="CallbackClassGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/CallbackClassGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="33" column="1" lean-forward="false" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SharedWzpCommonRequestTask.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/test/SharedWzpCommonRequestTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="-980">
+              <caret line="82" column="81" lean-forward="false" selection-start-line="82" selection-start-column="81" selection-end-line="82" selection-end-column="81" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApiServiceClass.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/ApiServiceClass.java">
+      <file leaf-file-name="StubClassGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/StubClassGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+            <state relative-caret-position="-775">
+              <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Object.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/jre/jdk/Contents/Home/jre/lib/rt.jar!/java/lang/Object.class">
+      <file leaf-file-name="StubFactoryGenerator.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/StubFactoryGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="17" column="19" lean-forward="false" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+            <state relative-caret-position="170">
+              <caret line="54" column="86" lean-forward="false" selection-start-line="54" selection-start-column="86" selection-end-line="54" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SharedWzpCommonRequestTaskStub.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build/generated/source/apt/debug/com/netease/demo/apiservice/api_service/SharedWzpCommonRequestTaskStub.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
               <folding>
-                <element signature="e#348#349#0" expanded="true" />
-                <element signature="e#383#384#0" expanded="true" />
+                <marker date="1541728600698" expanded="true" signature="198:264" ph="/**...*/" />
+                <marker date="1541728600698" expanded="true" signature="414:420" ph="/**...*/" />
+                <marker date="1541728600698" expanded="true" signature="519:663" ph="{...}" />
+                <marker date="1541728600698" expanded="true" signature="722:871" ph="{...}" />
+                <marker date="1541728600698" expanded="false" signature="910:917" ph=" { " />
+                <marker date="1541728600698" expanded="false" signature="932:936" ph=" }" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ApiBase.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/libs/api_service/ApiBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -135,28 +157,38 @@
         <entry file="file://$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/SharedWzpCommonRequestTaskApi.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="7" column="56" lean-forward="false" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
+              <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+              <folding>
+                <marker date="1541728600696" expanded="true" signature="96:182" ph="/**...*/" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApiFactoryGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiFactoryGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-470">
+              <caret line="51" column="106" lean-forward="false" selection-start-line="51" selection-start-column="106" selection-end-line="51" selection-end-column="106" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DemoApplication.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/DemoApplication.java">
+      <file leaf-file-name="ApiBaseGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiBaseGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="46" lean-forward="false" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ApiRegister.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build/generated/source/apt/debug/com/netease/demo/apiservice/api_service/ApiRegister.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="-127">
+              <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#950#951#0" expanded="true" />
+                <element signature="e#973#974#0" expanded="true" />
+                <element signature="e#1022#1023#0" expanded="true" />
+                <element signature="e#1053#1054#0" expanded="true" />
+                <element signature="e#1100#1101#0" expanded="true" />
+                <element signature="e#1133#1134#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -4566,13 +4598,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/build/generated/source/apt/debug/com/netease/demo/apiservice/api_service/factory/FunctionUtil_InnerModelStubFactory.java" />
-        <option value="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/ApiServiceClass.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/DataModel.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/HttpListener.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/HttpUtil.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/http/Request.java" />
-        <option value="$PROJECT_DIR$/app/build/generated/source/apt/debug/com/netease/demo/apiservice/api_service/factory/HttpListenerStubFactory.java" />
         <option value="$PROJECT_DIR$/module/apiservice/src/main/java/com/netease/libs/apiservice/anno/ApiServiceClassAnno.java" />
         <option value="$PROJECT_DIR$/module/apiservice-process/src/main/java/com/netease/libs/apiservice_process/generator/CallbackFactoryGenerator.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/http/HttpUtil.java" />
@@ -4609,20 +4634,27 @@
         <option value="$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/AppSingleton.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/build/generated/source/apt/debug/com/netease/demo/apiservice/api_service/factory/SharedWzpCommonRequestTaskStubFactory.java" />
-        <option value="$PROJECT_DIR$/app/build/generated/source/apt/debug/com/netease/demo/apiservice/api_service/SharedWzpCommonRequestTaskStub.java" />
         <option value="$PROJECT_DIR$/module/apiservice_process/build.gradle" />
         <option value="$PROJECT_DIR$/app/build/generated/source/apt/debug/com/netease/demo/apiservice/api_service/ApiRegister.java" />
-        <option value="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/BaseApiClassGenerator.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/test/RequestTaskInterface.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/test/BaseWzpCommonRequestTask.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/test/SharedWzpCommonRequestTask.java" />
         <option value="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/ApiServiceClass.java" />
+        <option value="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/BaseApiClassGenerator.java" />
+        <option value="$PROJECT_DIR$/app/build/generated/source/apt/debug/com/netease/demo/apiservice/api_service/SharedWzpCommonRequestTaskStub.java" />
+        <option value="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiBaseGenerator.java" />
+        <option value="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiFactoryGenerator.java" />
+        <option value="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiGenerator.java" />
+        <option value="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiRegisterGenerator.java" />
+        <option value="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/CallbackClassGenerator.java" />
+        <option value="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/StubClassGenerator.java" />
+        <option value="$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/StubFactoryGenerator.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="134" />
-    <option name="y" value="23" />
+    <option name="x" value="434" />
+    <option name="y" value="53" />
     <option name="width" value="1557" />
     <option name="height" value="1031" />
   </component>
@@ -4651,6 +4683,96 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ApiService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ApiService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ApiService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiservice_process" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ApiService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ApiService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiservice_process" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiservice_process" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ApiService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ApiService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiservice_process" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiservice_process" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -4830,7 +4952,7 @@
   <component name="PropertiesComponent">
     <property name="show.migrate.to.gradle.popup" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
     <property name="device.picker.selection" value="Nexus_5_API_22" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/app/build/generated/source/apt/debug/com/netease/demo/apiservice/api_impl/AppCalculatorStub.java" />
   </component>
@@ -4915,7 +5037,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1541679644136" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1541730488595" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -4961,7 +5083,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1541679644136" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1541730488595" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -5254,7 +5376,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1541679644139" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1541730488623" />
       </method>
     </configuration>
     <list size="1">
@@ -5293,7 +5415,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="134" y="23" width="1557" height="1031" extended-state="0" />
+    <frame x="434" y="53" width="1557" height="1031" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -5317,7 +5439,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32858709" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32858709" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27326733" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -5380,72 +5502,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiFactoryGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="64" column="17" lean-forward="false" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/CallbackClassGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-515">
-          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/StubClassGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="27" column="47" lean-forward="false" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/BaseClassGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiBaseGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/FileUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/FunctionUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/apiservice-api/api_records/com.netease.demo.demomodule1.records.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/module/apiservice-api/api_records/com.netease.demo.apiservice.records.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -5539,27 +5595,6 @@
         <state relative-caret-position="135">
           <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="24" column="43" lean-forward="false" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
-          <folding>
-            <element signature="e#1174#1175#0" expanded="true" />
-            <element signature="e#1219#1220#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/ApiServiceProcess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="174" column="18" lean-forward="false" selection-start-line="174" selection-start-column="18" selection-end-line="174" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -5698,14 +5733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/generated/source/apt/debug/com/netease/demo/apiservice/api_service/SharedWzpCommonRequestTaskStub.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/factory/SharedWzpCommonRequestTaskApiFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -5749,16 +5776,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/BaseApiClassGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="104" column="26" lean-forward="false" selection-start-line="104" selection-start-column="26" selection-end-line="104" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/netease/demo/apiservice/test/RequestTaskInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -5771,14 +5788,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/SharedWzpCommonRequestTaskApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="56" lean-forward="false" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
           <folding />
         </state>
       </provider>
@@ -5813,8 +5822,139 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/ApiServiceClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+        <state relative-caret-position="285">
+          <caret line="19" column="38" lean-forward="true" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/Logger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/FileUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1300">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/ApiServiceProcess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2149">
+          <caret line="174" column="18" lean-forward="false" selection-start-line="174" selection-start-column="18" selection-end-line="174" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice-api/src/main/java/com/netease/demo/apiservice/api_service/SharedWzpCommonRequestTaskApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding>
+            <marker date="1541728600696" expanded="true" signature="96:182" ph="/**...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/apt/debug/com/netease/demo/apiservice/api_service/SharedWzpCommonRequestTaskStub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding>
+            <marker date="1541728600698" expanded="true" signature="198:264" ph="/**...*/" />
+            <marker date="1541728600698" expanded="true" signature="414:420" ph="/**...*/" />
+            <marker date="1541728600698" expanded="true" signature="519:663" ph="{...}" />
+            <marker date="1541728600698" expanded="true" signature="722:871" ph="{...}" />
+            <marker date="1541728600698" expanded="false" signature="910:917" ph=" { " />
+            <marker date="1541728600698" expanded="false" signature="932:936" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiBaseGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-127">
+          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#950#951#0" expanded="true" />
+            <element signature="e#973#974#0" expanded="true" />
+            <element signature="e#1022#1023#0" expanded="true" />
+            <element signature="e#1053#1054#0" expanded="true" />
+            <element signature="e#1100#1101#0" expanded="true" />
+            <element signature="e#1133#1134#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiFactoryGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-470">
+          <caret line="51" column="106" lean-forward="false" selection-start-line="51" selection-start-column="106" selection-end-line="51" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="47" column="92" lean-forward="false" selection-start-line="47" selection-start-column="92" selection-end-line="47" selection-end-column="92" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/ApiRegisterGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="51" column="65" lean-forward="false" selection-start-line="51" selection-start-column="65" selection-end-line="51" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/BaseApiClassGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1325">
+          <caret line="104" column="26" lean-forward="false" selection-start-line="104" selection-start-column="26" selection-end-line="104" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/CallbackClassGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-980">
+          <caret line="82" column="81" lean-forward="false" selection-start-line="82" selection-start-column="81" selection-end-line="82" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/StubClassGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-775">
+          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/apiservice_process/src/main/java/com/netease/libs/apiservice_process/generator/StubFactoryGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="54" column="86" lean-forward="false" selection-start-line="54" selection-start-column="86" selection-end-line="54" selection-end-column="86" />
           <folding />
         </state>
       </provider>

@@ -52,7 +52,7 @@ public class StubFactoryGenerator extends BaseApiClassGenerator {
         TypeSpec.Builder builder = classBuilder(className())
                 .addModifiers(PUBLIC)
                 .addSuperinterface(mSuperType);
-        builder.addJavadoc(mApiTarget.getQualifiedName().toString() + " stub 类的工厂接口\n");
+        builder.addJavadoc(mApiTarget.getQualifiedName().toString() + "'s Stub Class factory\n");
 
         generate(builder);
 

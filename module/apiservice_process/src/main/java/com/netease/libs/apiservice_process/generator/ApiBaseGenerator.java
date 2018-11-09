@@ -11,7 +11,6 @@ import com.squareup.javapoet.TypeSpec;
 import java.io.IOException;
 
 import javax.annotation.processing.Filer;
-import javax.annotation.processing.Messager;
 import javax.lang.model.element.Modifier;
 
 import static com.squareup.javapoet.TypeSpec.interfaceBuilder;
@@ -45,7 +44,7 @@ public class ApiBaseGenerator extends BaseClassGenerator {
     public TypeSpec generate() {
         TypeSpec.Builder builder = interfaceBuilder(className())
                 .addModifiers(PUBLIC);
-        builder.addJavadoc("api service 接口的父接口\n");
+        builder.addJavadoc("api service Interface's parent Interface\n");
 
         MethodSpec.Builder methodBuilder = MethodSpec
                 .methodBuilder(GET_TARGET_METHOD_NAME)

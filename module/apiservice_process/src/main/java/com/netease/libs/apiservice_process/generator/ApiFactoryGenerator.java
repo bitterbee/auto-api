@@ -49,7 +49,7 @@ public class ApiFactoryGenerator extends BaseApiClassGenerator {
     public TypeSpec generate() {
         TypeSpec.Builder builder = interfaceBuilder(className())
                 .addModifiers(PUBLIC);
-        builder.addJavadoc(mApiTarget.getQualifiedName().toString() + " api 类的工厂接口\n");
+        builder.addJavadoc(mApiTarget.getQualifiedName().toString() + " api Class's factory Interface\n");
 
         generate(builder);
 

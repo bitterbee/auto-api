@@ -45,11 +45,11 @@ public class ApiRegisterGenerator extends BaseClassGenerator {
     public TypeSpec generate() {
         TypeSpec.Builder builder = classBuilder(className())
                 .addModifiers(PUBLIC);
-        builder.addJavadoc("ApiService 注册类\n");
+        builder.addJavadoc("ApiService Register Class\n");
 
         MethodSpec.Builder initMethod = MethodSpec.methodBuilder("init")
                 .addModifiers(Modifier.STATIC, Modifier.PUBLIC)
-                .addJavadoc("集成模块的 ApiService 初始化方法\n")
+                .addJavadoc("Collect & Register All StubFactories\n")
                 .returns(TypeName.VOID);
         for (StubFactoryGenerator subFactory : mStubFactoryGenerators) {
             ClassName stubFactoryType = ClassName.get(subFactory.packageName(), subFactory.className());
