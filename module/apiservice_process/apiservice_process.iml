@@ -33,14 +33,6 @@
     <orderEntry type="library" exported="" scope="PROVIDED" name="auto-common-0.3" level="project" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="guava-18.0" level="project" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="tools" level="project" />
-    <orderEntry type="library" exported="" name="apiservice_process.apiservice_process-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="apiservice_process.apiservice_process-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="apiservice_process.apiservice_process-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="apiservice_process.apiservice_process-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="apiservice_process.apiservice_process-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="apiservice_process.apiservice_process-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="apiservice_process.apiservice_process-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="apiservice_process.apiservice_process-1.0.0" level="project" />
   </component>
   <component name="sonarModuleSettings">
     <option name="localAnalysisScripName" value="&lt;PROJECT&gt;" />

@@ -16,4 +16,8 @@ public class HttpUtil {
     public Request queryNoCallback(HttpListener listener) {
         return new Request();
     }
+
+    public <T> T get(Class<T> aaaaaa) {
+        return null;
+    }
 }

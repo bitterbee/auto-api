@@ -9,6 +9,8 @@ import com.squareup.javapoet.FieldSpec;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
+import com.squareup.javapoet.TypeVariableName;
+import com.sun.tools.javac.code.Type;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,7 @@ import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.TypeMirror;
+import javax.lang.model.type.TypeVariable;
 
 import static com.squareup.javapoet.TypeSpec.classBuilder;
 import static javax.lang.model.element.Modifier.PUBLIC;
@@ -89,6 +92,8 @@ public class StubClassGenerator extends BaseApiClassGenerator {
 
     @Override
     protected void addMethod(TypeSpec.Builder builder, ExecutableElement e, String methodName) {
+        Logger.w("return is " + e.getReturnType() + "; type is " + e.getReturnType().getClass());
+
         TypeName returnApiType = ElementUtil.getApiServiceClassName(e.getReturnType());
         boolean hasReturn = e.getReturnType() != null && TypeName.get(e.getReturnType()) != TypeName.VOID;
         boolean isStatic = ElementUtil.isStatic(e);
@@ -98,6 +103,11 @@ public class StubClassGenerator extends BaseApiClassGenerator {
                 .addModifiers(Modifier.PUBLIC)
                 // 如果是自定义类型，需要修改成 api 类
                 .returns(returnApiType != null ? returnApiType : ClassName.get(e.getReturnType()));
+
+        if (e.getReturnType() instanceof Type.TypeVar) {
+            Type.TypeVar typeVar = (Type.TypeVar) e.getReturnType();
+            methodBuilder.addTypeVariable(TypeVariableName.get(typeVar));
+        }
 
         for (TypeMirror throwType : e.getThrownTypes()) {
             methodBuilder.addException(TypeName.get(throwType));
