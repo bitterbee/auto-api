@@ -6,8 +6,6 @@ import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
-import com.squareup.javapoet.TypeVariableName;
-import com.sun.tools.javac.code.Type;
 
 import java.io.IOException;
 
@@ -64,11 +62,7 @@ public class ApiGenerator extends BaseApiClassGenerator {
         MethodSpec.Builder methodBuilder = MethodSpec
                 .methodBuilder(methodName)
                 .returns(tryConvertApiTypeName(e.getReturnType()));
-
-        if (e.getReturnType() instanceof Type.TypeVar) {
-            Type.TypeVar typeVar = (Type.TypeVar) e.getReturnType();
-            methodBuilder.addTypeVariable(TypeVariableName.get(typeVar));
-        }
+        addTemplateTypes(methodBuilder, e.getReturnType());
 
         for (VariableElement param : e.getParameters()) {
             methodBuilder.addParameter(tryConvertApiTypeName(param),

@@ -19,7 +19,6 @@ import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.TypeMirror;
-import javax.lang.model.type.TypeVariable;
 
 import static com.squareup.javapoet.TypeSpec.classBuilder;
 import static javax.lang.model.element.Modifier.PUBLIC;
@@ -104,10 +103,7 @@ public class StubClassGenerator extends BaseApiClassGenerator {
                 // 如果是自定义类型，需要修改成 api 类
                 .returns(returnApiType != null ? returnApiType : ClassName.get(e.getReturnType()));
 
-        if (e.getReturnType() instanceof Type.TypeVar) {
-            Type.TypeVar typeVar = (Type.TypeVar) e.getReturnType();
-            methodBuilder.addTypeVariable(TypeVariableName.get(typeVar));
-        }
+        addTemplateTypes(methodBuilder, e.getReturnType());
 
         for (TypeMirror throwType : e.getThrownTypes()) {
             methodBuilder.addException(TypeName.get(throwType));

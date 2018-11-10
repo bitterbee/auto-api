@@ -8,8 +8,10 @@ import com.netease.libs.apiservice_process.BaseClassGenerator;
 import com.netease.libs.apiservice_process.ElementUtil;
 import com.netease.libs.apiservice_process.Logger;
 import com.squareup.javapoet.ClassName;
+import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
+import com.squareup.javapoet.TypeVariableName;
 import com.sun.tools.javac.code.Symbol;
 import com.sun.tools.javac.code.Type;
 
@@ -25,6 +27,7 @@ import javax.lang.model.element.TypeElement;
 import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.DeclaredType;
 import javax.lang.model.type.TypeMirror;
+import javax.lang.model.type.TypeVariable;
 
 /**
  * Created by zyl06 on 2018/10/18.
@@ -220,5 +223,25 @@ public abstract class BaseApiClassGenerator extends BaseClassGenerator {
     public TypeName tryConvertApiTypeName(TypeMirror type) {
         TypeName apiTypeName = ElementUtil.getApiServiceClassName(type);
         return apiTypeName != null ? apiTypeName : ClassName.get(type);
+    }
+
+    protected void addTemplateTypes(MethodSpec.Builder builder, TypeMirror returnType) {
+        Logger.w("return " + returnType + "; class " + returnType.getClass());
+
+
+
+        if (returnType instanceof Type.TypeVar) {
+            Type.TypeVar typeVar = (Type.TypeVar) returnType;
+            builder.addTypeVariable(TypeVariableName.get(typeVar));
+        } else if (returnType instanceof Type.ClassType) {
+            Type.ClassType classType = (Type.ClassType) returnType;
+            List<Type> types = classType.getTypeArguments();
+            for (Type type : types) {
+                if (type instanceof TypeVariable) {
+                    TypeVariable tv = (TypeVariable) type;
+                    builder.addTypeVariable(TypeVariableName.get(tv));
+                }
+            }
+        }
     }
 }
