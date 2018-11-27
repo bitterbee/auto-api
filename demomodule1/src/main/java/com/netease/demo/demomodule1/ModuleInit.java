@@ -1,6 +1,6 @@
 package com.netease.demo.demomodule1;
 
-import com.netease.demo.demomodule1.api_service.ApiRegister;
+import com.netease.demo.demomodule1.auto_api.ApiRegister;
 
 /**
  * Created by zyl06 on 2018/10/26.

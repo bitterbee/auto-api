@@ -1,0 +1,5 @@
+com/netease/libs/auto_api/ApiBase.java;
+com/netease/demo/demomodule1/auto_api/ModuleFunction.java;
+com/netease/demo/demomodule1/auto_api/factory/ModuleFunctionApiFactory.java;
+com/netease/libs/auto_api/ApiBase.java;
+com/netease/libs/auto_api/ApiBase.java;

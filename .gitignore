@@ -26,7 +26,7 @@ hs_err_pid*
 .gradle/*
 build/*
 
-module/neapiprovider-plugin/neapiprovider-plugin.iml
-module/neapiprovider/neapiprovider.iml
-apiprovider.iml
-/module/neapiprovider/src/api/
+module/autoapi-plugin/autoapi-plugin.iml
+module/autoapi/autoapi.iml
+autoapi.iml
+/module/autoapi/src/api/

@@ -1,13 +1,13 @@
 include ':app', ':demomodule1'
 
-include ':apiservice'
-project(':apiservice').projectDir = new File('module/apiservice')
+include ':autoapi'
+project(':autoapi').projectDir = new File('module/autoapi')
 
-include ':apiservice_process'
-project(':apiservice_process').projectDir = new File('module/apiservice_process')
+include ':autoapi_process'
+project(':autoapi_process').projectDir = new File('module/autoapi_process')
 
-include ':apiservice-plugin'
-project(':apiservice-plugin').projectDir = new File('module/apiservice-plugin')
+include ':autoapi-plugin'
+project(':autoapi-plugin').projectDir = new File('module/autoapi-plugin')
 
-include ':apiservice-api'
-project(':apiservice-api').projectDir = new File('module/apiservice-api')
+include ':autoapi-api'
+project(':autoapi-api').projectDir = new File('module/autoapi-api')

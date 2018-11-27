@@ -18,7 +18,7 @@ repositories {
 android {
     compileSdkVersion COMPILE_SDK_VERSION.toInteger()
     defaultConfig {
-        applicationId "com.netease.demo.apiservice"
+        applicationId "com.netease.demo.autoapi"
         minSdkVersion MIN_SDK_VERSION.toInteger()
         targetSdkVersion TARGET_SDK_VERSION.toInteger()
         versionCode 1
@@ -27,9 +27,9 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                def path = "${rootProject.projectDir}/module/apiservice-api".toString()
+                def path = "${rootProject.projectDir}/module/autoapi-api".toString()
                 arguments = [apiProjectPath: path,
-                             packageName: "com.netease.demo.apiservice",
+                             packageName: "com.netease.demo.autoapi",
                              apiBuildEnable: "true",
                              logOpen: "true"]
             }
@@ -74,7 +74,7 @@ dependencies {
     androidTestImplementation "com.android.support.test.espresso:espresso-core:${TEST_ESPRESSO_CORE_VERSION}"
 
     compile project(':demomodule1')
-    compile project(':apiservice')
-    compile project(':apiservice-api')
-    annotationProcessor project(':apiservice_process')
+    compile project(':autoapi')
+    compile project(':autoapi-api')
+    annotationProcessor project(':autoapi_process')
 }
