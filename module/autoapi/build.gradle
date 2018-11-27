@@ -29,7 +29,7 @@ dependencies {
 
 }
 
-version = API_SERVIEC_VERSION
+version = AUTO_API_VERSION
 group = 'com.netease.libs'
 
 uploadArchives {
