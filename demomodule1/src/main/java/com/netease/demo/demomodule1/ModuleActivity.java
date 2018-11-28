@@ -54,6 +54,13 @@ public class ModuleActivity extends Activity {
 
     public void onButton1Click(View v) {
 
+//        AddUtilApiFactory factory = AutoApi.getApiFactory("AddUtilApi");
+//        AddUtilApi api0 = factory.newInstance(11, 12);
+//        AddUtilApi api1 = factory.newInstance(3);
+//        int result0 = api0.calu(); // 23
+//        int result1 = api1.calu(); // 6
+
+
         AddUtilApiFactory factory = AutoApi.getApiFactory("AddUtilApi");
         AddUtilApi api = factory.newInstance(11, 12);
         int result0 = api.calu(); // 23

@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.netease.demo.apiservice", appContext.getPackageName());
+        assertEquals("com.netease.demo.autoapi", appContext.getPackageName());
     }
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ApiService</string>
+    <string name="app_name">AutoApi</string>
 
     <string name="confirm">确认</string>
     <string name="cancel">取消</string>

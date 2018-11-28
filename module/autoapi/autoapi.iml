@@ -28,14 +28,15 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="autoapi.autoapi-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="autoapi.autoapi-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="autoapi.autoapi-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="autoapi.autoapi-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="autoapi.autoapi-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="autoapi.autoapi-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="autoapi.autoapi-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="autoapi.autoapi-1.0.0" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="aspectjrt-1.8.9" level="project" />
+    <orderEntry type="library" exported="" name="autoapi.autoapi-1.1.0" level="project" />
+    <orderEntry type="library" exported="" name="autoapi.autoapi-1.1.0" level="project" />
+    <orderEntry type="library" exported="" name="autoapi.autoapi-1.1.0" level="project" />
+    <orderEntry type="library" exported="" name="autoapi.autoapi-1.1.0" level="project" />
+    <orderEntry type="library" exported="" name="autoapi.autoapi-1.1.0" level="project" />
+    <orderEntry type="library" exported="" name="autoapi.autoapi-1.1.0" level="project" />
+    <orderEntry type="library" exported="" name="autoapi.autoapi-1.1.0" level="project" />
+    <orderEntry type="library" exported="" name="autoapi.autoapi-1.1.0" level="project" />
   </component>
   <component name="sonarModuleSettings">
     <option name="localAnalysisScripName" value="&lt;PROJECT&gt;" />

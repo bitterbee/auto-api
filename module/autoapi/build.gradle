@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'android-aspectjx'
 apply plugin: 'maven'
 
 sourceCompatibility = JavaVersion.VERSION_1_7
@@ -6,7 +7,8 @@ targetCompatibility = JavaVersion.VERSION_1_7
 
 repositories {
     mavenLocal()
-    maven { url uri('../../repo') }
+    maven { url 'https://raw.githubusercontent.com/bitterbee/mvn-repo/master/' }
+//    maven { url uri('../../repo') }
     maven{ url 'https://dl.google.com/dl/android/maven2/'}
     jcenter()
     maven { url 'https://maven.google.com'}
@@ -26,7 +28,7 @@ sourceSets {
 }
 
 dependencies {
-
+    compileOnly "org.aspectj:aspectjrt:${ASPECTJRT_VERSION}"
 }
 
 version = AUTO_API_VERSION

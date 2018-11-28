@@ -2,6 +2,7 @@ package com.netease.libs.autoapi_process.generator;
 
 import com.netease.libs.autoapi.AutoApi;
 import com.netease.libs.autoapi_process.BaseClassGenerator;
+import com.squareup.javapoet.AnnotationSpec;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeName;
@@ -44,13 +45,20 @@ public class ApiRegisterGenerator extends BaseClassGenerator {
     @Override
     public TypeSpec generate() {
         TypeSpec.Builder builder = classBuilder(className())
-                .addModifiers(PUBLIC);
+                .addModifiers(PUBLIC)
+                .addAnnotation(ClassName.get("org.aspectj.lang.annotation", "Aspect"));
         builder.addJavadoc("ApiService Register Class\n");
 
         MethodSpec.Builder initMethod = MethodSpec.methodBuilder("init")
-                .addModifiers(Modifier.STATIC, Modifier.PUBLIC)
+                .addModifiers(Modifier.PUBLIC)
+                .addParameter(ClassName.get("org.aspectj.lang", "JoinPoint"), "joinPoint")
                 .addJavadoc("Collect & Register All StubFactories\n")
                 .returns(TypeName.VOID);
+
+        AnnotationSpec.Builder annoBuilder = AnnotationSpec.builder(ClassName.get("org.aspectj.lang.annotation", "After"));
+        annoBuilder.addMember("value", "\"execution(void com.netease.libs.autoapi.AutoApi.init())\"");
+        initMethod.addAnnotation(annoBuilder.build());
+
         for (StubFactoryGenerator subFactory : mStubFactoryGenerators) {
             ClassName stubFactoryType = ClassName.get(subFactory.packageName(), subFactory.className());
 

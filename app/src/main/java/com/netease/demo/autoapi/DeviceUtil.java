@@ -1,6 +1,7 @@
 package com.netease.demo.autoapi;
 
 import com.netease.libs.autoapi.anno.AutoApiClassAnno;
+import com.netease.libs.autoapi.anno.AutoApiConstructAnno;
 import com.netease.libs.autoapi.anno.AutoApiMethodAnno;
 
 /**
@@ -8,6 +9,10 @@ import com.netease.libs.autoapi.anno.AutoApiMethodAnno;
  */
 @AutoApiClassAnno
 public class DeviceUtil {
+
+    @AutoApiConstructAnno
+    public DeviceUtil() {
+    }
 
     @AutoApiMethodAnno
     public int getDeviceId() {

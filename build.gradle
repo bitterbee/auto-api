@@ -4,7 +4,8 @@ buildscript {
     
     repositories {
         mavenLocal()
-        maven { url uri('../repo') }
+        maven { url 'https://github.com/bitterbee/mvn-repo' }
+//        maven { url uri('../repo') }
         google()
         jcenter()
     }
@@ -14,13 +15,15 @@ buildscript {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
 //        classpath "com.netease.plugin:neapiprovider-plugin:${API_PROVIDER_PLUGIN_VERSION}"
+        classpath "com.hujiang.aspectjx:gradle-android-plugin-aspectjx:${ASPECTJRT_GRADLE_VERSION}"
     }
 }
 
 allprojects {
     repositories {
         mavenLocal()
-        maven { url uri('../repo') }
+//        maven { url uri('../repo') }
+        maven { url 'https://raw.githubusercontent.com/bitterbee/mvn-repo/master/' }
         google()
         jcenter()
     }
