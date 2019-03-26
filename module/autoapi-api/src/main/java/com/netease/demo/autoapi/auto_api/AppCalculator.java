@@ -21,7 +21,7 @@ public interface AppCalculator extends ApiBase {
 
   int decrease(int a);
 
-  int add(AppDataModel model);
+  int add(DataModelApi model);
 
-  AppDataModel add(AppDataModel a, AppDataModel b);
+  DataModelApi add(DataModelApi a, DataModelApi b);
 }

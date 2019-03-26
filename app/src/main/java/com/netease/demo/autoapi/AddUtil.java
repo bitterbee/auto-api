@@ -1,6 +1,7 @@
 package com.netease.demo.autoapi;
 
 import com.netease.libs.autoapi.anno.AutoApiClassAnno;
+import com.netease.libs.autoapi.anno.AutoApiClassBuildMethodAnno;
 import com.netease.libs.autoapi.anno.AutoApiConstructAnno;
 import com.netease.libs.autoapi.anno.AutoApiMethodAnno;
 
@@ -23,6 +24,11 @@ public class AddUtil {
     public AddUtil(int data) {
         mData1 = data;
         mData2 = data;
+    }
+
+    @AutoApiClassBuildMethodAnno
+    public static AddUtil getInstance(int data1, int data2) {
+        return new AddUtil(data1, data2);
     }
 
     @AutoApiMethodAnno

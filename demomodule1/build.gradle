@@ -1,6 +1,16 @@
 apply plugin: 'com.android.library'
 apply plugin: 'android-aspectjx'
 
+repositories {
+    mavenLocal()
+    maven { url 'https://raw.githubusercontent.com/bitterbee/mvn-repo/master/' }
+    maven { url 'https://dl.google.com/dl/android/maven2/' }
+    jcenter()
+    flatDir {
+        dirs 'libs'
+    }
+}
+
 android {
     compileSdkVersion COMPILE_SDK_VERSION.toInteger()
     defaultConfig {
@@ -36,9 +46,13 @@ dependencies {
     androidTestImplementation "com.android.support.test:runner:${TEST_RUNNER}"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:${TEST_ESPRESSO_CORE_VERSION}"
 
-    compile project(':autoapi')
     compile project(':autoapi-api')
-    annotationProcessor project(':autoapi_process')
+
+//    compile project(':autoapi')
+//    annotationProcessor project(':autoapi_process')
+
+    compile 'com.netease.libs:autoapi:1.1.0'
+    annotationProcessor 'com.netease.libs:autoapi_process:1.1.0'
 
     compileOnly "org.aspectj:aspectjrt:${ASPECTJRT_VERSION}"
 }

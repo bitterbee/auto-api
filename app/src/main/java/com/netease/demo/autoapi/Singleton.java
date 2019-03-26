@@ -9,7 +9,7 @@ import com.netease.libs.autoapi.anno.AutoApiMethodAnno;
 /**
  * Created by zyl06 on 2018/10/28.
  */
-@AutoApiClassAnno(name = "AppSingleton")
+@AutoApiClassAnno
 public class Singleton {
 
     private static Singleton sInstance = null;

@@ -6,7 +6,7 @@ import com.netease.libs.autoapi.anno.AutoApiConstructAnno;
 /**
  * Created by zyl06 on 2018/10/27.
  */
-@AutoApiClassAnno(name = "AppDataModel", allPublicNormalApi = true)
+@AutoApiClassAnno
 public class DataModel {
 
     private int a;

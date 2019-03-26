@@ -76,9 +76,13 @@ dependencies {
     androidTestImplementation "com.android.support.test.espresso:espresso-core:${TEST_ESPRESSO_CORE_VERSION}"
 
     compile project(':demomodule1')
-    compile project(':autoapi')
+
+//    compile project(':autoapi')
     compile project(':autoapi-api')
-    annotationProcessor project(':autoapi_process')
+//    annotationProcessor project(':autoapi_process')
+
+    compile 'com.netease.libs:autoapi:1.1.0'
+    annotationProcessor 'com.netease.libs:autoapi_process:1.1.0'
 
     compileOnly "org.aspectj:aspectjrt:${ASPECTJRT_VERSION}"
 }

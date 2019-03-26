@@ -9,4 +9,6 @@ public interface AddUtilApiFactory {
   AddUtilApi newInstance(int data1, int data2);
 
   AddUtilApi newInstance(int data);
+
+  AddUtilApi getInstance(int data1, int data2);
 }
