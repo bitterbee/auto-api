@@ -22,18 +22,22 @@ public class FileUtil {
 
     public static void writeTo(JavaFile javaFile) throws IOException {
 
-        String to = sToProjectPath + "/src/main/java/";
-        if (sApiBuildEnable) {
-            File toDir = new File(to);
-            if (!toDir.exists()) {
-                boolean success = toDir.mkdirs();
-                if (!success) {
-                    Logger.e(to + " folder not exists!!!");
-                    return;
-                }
-            }
-            javaFile.writeTo(toDir);
+        if (!sApiBuildEnable) {
+            return;
         }
+
+        String to = sToProjectPath + "/src/main/java/";
+
+        // 写文件
+        File toDir = new File(to);
+        if (!toDir.exists()) {
+            boolean success = toDir.mkdirs();
+            if (!success) {
+                Logger.e(to + " folder not exists!!!");
+                return;
+            }
+        }
+        javaFile.writeTo(toDir);
 
         // 生成 record 文件
         String pkgName = javaFile.packageName;
