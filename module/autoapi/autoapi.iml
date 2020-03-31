@@ -4,6 +4,8 @@
     <facet type="android-gradle" name="Android-Gradle">
       <configuration>
         <option name="GRADLE_PROJECT_PATH" value=":autoapi" />
+        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" />
+        <option name="LAST_KNOWN_AGP_VERSION" />
       </configuration>
     </facet>
     <facet type="java-gradle" name="Java-Gradle">
@@ -28,10 +30,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="Gradle: aspectjrt-1.8.9" level="project" />
-  </component>
-  <component name="sonarModuleSettings">
-    <option name="localAnalysisScripName" value="&lt;PROJECT&gt;" />
-    <option name="serverName" value="&lt;PROJECT&gt;" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Gradle: aspectjrt-1.8.9" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="Gradle: aspectjrt-1.8.9" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: aspectjrt-1.8.9" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: autoapi.autoapi-1.1.0" level="project" />
   </component>
 </module>
