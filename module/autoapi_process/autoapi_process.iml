@@ -4,6 +4,8 @@
     <facet type="android-gradle" name="Android-Gradle">
       <configuration>
         <option name="GRADLE_PROJECT_PATH" value=":autoapi_process" />
+        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" />
+        <option name="LAST_KNOWN_AGP_VERSION" />
       </configuration>
     </facet>
     <facet type="java-gradle" name="Java-Gradle">
@@ -27,15 +29,24 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="Gradle: autoapi-1.1.0" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: auto-service-1.0-rc2" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: javapoet-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: auto-common-0.3" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: guava-18.0" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: tools" level="project" />
-  </component>
-  <component name="sonarModuleSettings">
-    <option name="localAnalysisScripName" value="&lt;PROJECT&gt;" />
-    <option name="serverName" value="&lt;PROJECT&gt;" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Gradle: autoapi-1.1.0" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Gradle: auto-service-1.0-rc2" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Gradle: javapoet-1.0.0" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Gradle: auto-common-0.3" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Gradle: guava-18.0" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Gradle: tools" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="Gradle: autoapi-1.1.0" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="Gradle: auto-service-1.0-rc2" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="Gradle: javapoet-1.0.0" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="Gradle: auto-common-0.3" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="Gradle: guava-18.0" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="Gradle: tools" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: autoapi-1.1.0" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: auto-service-1.0-rc2" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: javapoet-1.0.0" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: auto-common-0.3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: guava-18.0" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: tools" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: autoapi_process.autoapi_process-1.1.0" level="project" />
   </component>
 </module>

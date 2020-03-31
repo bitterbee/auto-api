@@ -10,6 +10,10 @@ import com.netease.libs.autoapi.anno.AutoApiMethodAnno;
 @AutoApiClassAnno
 public class DeviceUtil {
 
+    @AutoApiConstructAnno
+    public DeviceUtil() {
+    }
+
     @AutoApiMethodAnno
     public int getDeviceId() {
         return 0;
